@@ -41,3 +41,7 @@ config/itch_project_name=""
 
 disable_plugin_dialogues=true
 copy_path="res://Maack template scenes"
+
+[physics]
+
+3d/physics_engine="JoltPhysics3D"
