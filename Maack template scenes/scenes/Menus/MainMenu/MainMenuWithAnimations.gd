@@ -13,7 +13,7 @@ func _is_in_intro():
 	return animation_state_machine.get_current_node() == "Intro"
 
 func _event_is_mouse_button_released(event : InputEvent):
-	return event is InputEventMouseButton and not event.is_pressed()
+	return event is InputEventMouseButton and not event.is_pressed() #and now is broken
 
 func _event_skips_intro(event : InputEvent):
 	return event.is_action_released("ui_accept") or \
