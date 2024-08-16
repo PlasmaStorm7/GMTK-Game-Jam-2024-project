@@ -1,0 +1,24 @@
+[gd_scene format=3 uid="uid://cyvfvjo3weluf"]
+
+[node name="MockGlossary" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="ColorRect" type="ColorRect" parent="."]
+modulate = Color(0.18475, 0.25, 0.1825, 1)
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 1.0
+anchor_top = 0.4
+anchor_right = 1.0
+anchor_bottom = 0.4
+offset_top = -0.199982
+offset_right = 1747.0
+offset_bottom = 1195.26
+grow_horizontal = 0
+grow_vertical = 2
+rotation = 3.57792
