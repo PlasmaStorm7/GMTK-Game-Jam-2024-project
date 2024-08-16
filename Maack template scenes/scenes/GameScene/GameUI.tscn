@@ -1,0 +1,74 @@
+[gd_scene load_steps=11 format=3 uid="uid://bxpuc0pjk3qa2"]
+
+[ext_resource type="Script" path="res://Maack template scenes/scenes/GameScene/GameUI.gd" id="1_j07r8"]
+[ext_resource type="PackedScene" uid="uid://eiaef8cfalio" path="res://Maack template scenes/scenes/WinScreen/WinScreen.tscn" id="2_cxc3m"]
+[ext_resource type="PackedScene" uid="uid://b1dtbh78khah7" path="res://Maack template scenes/scenes/LoseScreen/LoseScreen.tscn" id="3_qf4ut"]
+[ext_resource type="Script" path="res://addons/maaacks_game_template/extras/scripts/PauseMenuController.gd" id="4_q3o0w"]
+[ext_resource type="PackedScene" uid="uid://ddn3bxc0qyabs" path="res://Maack template scenes/scenes/Menus/PauseMenu/PauseMenu.tscn" id="5_ehorp"]
+[ext_resource type="Script" path="res://addons/maaacks_game_template/extras/scripts/LevelLoader.gd" id="6_57c25"]
+[ext_resource type="PackedScene" uid="uid://bkcsjsk2ciff" path="res://addons/maaacks_game_template/base/scenes/MusicPlayers/BackgroundMusicPlayer.tscn" id="7_prkhq"]
+[ext_resource type="PackedScene" uid="uid://cd0jbh4metflb" path="res://addons/maaacks_game_template/base/scenes/LoadingScreen/LoadingScreen.tscn" id="8_jbl5m"]
+[ext_resource type="Script" path="res://Maack template scenes/scenes/GameScene/ConfigurableSubViewport.gd" id="9_sfadc"]
+[ext_resource type="Script" path="res://Maack template scenes/scenes/GameScene/InputDisplayLabel.gd" id="10_ai7u3"]
+
+[node name="GameUI" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_j07r8")
+win_scene = ExtResource("2_cxc3m")
+lose_scene = ExtResource("3_qf4ut")
+
+[node name="PauseMenuController" type="Node" parent="."]
+script = ExtResource("4_q3o0w")
+pause_menu_packed = ExtResource("5_ehorp")
+
+[node name="LevelLoader" type="Node" parent="." node_paths=PackedStringArray("level_container")]
+script = ExtResource("6_57c25")
+level_container = NodePath("../ViewportContainer/ConfigurableSubViewport")
+files = Array[String](["res://Maack template scenes/scenes/GameScene/Levels/Level1.tscn", "res://Maack template scenes/scenes/GameScene/Levels/Level2.tscn", "res://Maack template scenes/scenes/GameScene/Levels/Level3.tscn"])
+directory = "res://Maack template scenes/scenes/GameScene/Levels"
+
+[node name="BackgroundMusicPlayer" parent="." instance=ExtResource("7_prkhq")]
+
+[node name="LoadingScreen" parent="." instance=ExtResource("8_jbl5m")]
+visible = false
+
+[node name="ViewportContainer" type="SubViewportContainer" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+stretch = true
+
+[node name="ConfigurableSubViewport" type="SubViewport" parent="ViewportContainer"]
+handle_input_locally = false
+audio_listener_enable_2d = true
+audio_listener_enable_3d = true
+size = Vector2i(1280, 720)
+render_target_update_mode = 4
+script = ExtResource("9_sfadc")
+
+[node name="InputDisplayLabel" type="Label" parent="."]
+layout_mode = 1
+anchors_preset = 14
+anchor_top = 0.5
+anchor_right = 1.0
+anchor_bottom = 0.5
+offset_top = -44.0
+offset_bottom = 44.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_font_sizes/font_size = 64
+horizontal_alignment = 1
+autowrap_mode = 2
+script = ExtResource("10_ai7u3")
+
+[connection signal="level_load_started" from="LevelLoader" to="." method="_on_level_loader_level_load_started"]
+[connection signal="level_loaded" from="LevelLoader" to="." method="_on_level_loader_level_loaded"]
+[connection signal="levels_finished" from="LevelLoader" to="." method="_on_level_loader_levels_finished"]

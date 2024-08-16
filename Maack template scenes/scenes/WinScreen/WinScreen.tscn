@@ -1,0 +1,9 @@
+[gd_scene load_steps=3 format=3 uid="uid://eiaef8cfalio"]
+
+[ext_resource type="PackedScene" uid="uid://dt5ses55itjy4" path="res://addons/maaacks_game_template/extras/scenes/WinScreen/WinScreen.tscn" id="1_ow0v7"]
+[ext_resource type="Script" path="res://Maack template scenes/scenes/WinScreen/WinScreen.gd" id="2_xt034"]
+
+[node name="WinScreen" instance=ExtResource("1_ow0v7")]
+script = ExtResource("2_xt034")
+next_scene = "res://Maack template scenes/scenes/EndCredits/EndCredits.tscn"
+main_menu_scene = "res://Maack template scenes/scenes/Menus/MainMenu/MainMenuWithAnimations.tscn"
