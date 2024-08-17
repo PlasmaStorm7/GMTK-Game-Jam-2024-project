@@ -1,5 +1,6 @@
-[gd_scene load_steps=2 format=3 uid="uid://cs3nie2r7c7kt"]
+[gd_scene load_steps=3 format=3 uid="uid://cs3nie2r7c7kt"]
 
+[ext_resource type="Script" path="res://Scripts/Filter.gd" id="1_bysaa"]
 [ext_resource type="PackedScene" uid="uid://domm11iguay4m" path="res://Scenes/Glossary/mock_glossary_element.tscn" id="1_oiw43"]
 
 [node name="Glossay_UI" type="Control"]
@@ -62,6 +63,18 @@ grow_horizontal = 2
 grow_vertical = 2
 text = "GLOSSARY"
 
+[node name="TextEdit" type="TextEdit" parent="Title"]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.419
+anchor_right = 0.999
+anchor_bottom = 1.0
+offset_left = 0.331024
+offset_right = -0.248962
+offset_bottom = 1.0
+placeholder_text = "Search:"
+script = ExtResource("1_bysaa")
+
 [node name="ScrollContainer" type="ScrollContainer" parent="."]
 layout_mode = 1
 anchors_preset = -1
@@ -86,18 +99,52 @@ size_flags_vertical = 3
 custom_minimum_size = Vector2(100, 100)
 layout_mode = 2
 
+[node name="RichTextLabel" parent="ScrollContainer/VBoxContainer/mock_glossary_element" index="0"]
+grow_horizontal = 2
+grow_vertical = 2
+text = "aaaa
+"
+
 [node name="mock_glossary_element2" parent="ScrollContainer/VBoxContainer" instance=ExtResource("1_oiw43")]
 custom_minimum_size = Vector2(100, 100)
 layout_mode = 2
+
+[node name="RichTextLabel" parent="ScrollContainer/VBoxContainer/mock_glossary_element2" index="0"]
+grow_horizontal = 2
+grow_vertical = 2
+text = "aaab"
 
 [node name="mock_glossary_element3" parent="ScrollContainer/VBoxContainer" instance=ExtResource("1_oiw43")]
 custom_minimum_size = Vector2(100, 100)
 layout_mode = 2
 
+[node name="RichTextLabel" parent="ScrollContainer/VBoxContainer/mock_glossary_element3" index="0"]
+grow_horizontal = 2
+grow_vertical = 2
+text = "aacc"
+
 [node name="mock_glossary_element4" parent="ScrollContainer/VBoxContainer" instance=ExtResource("1_oiw43")]
 custom_minimum_size = Vector2(100, 100)
 layout_mode = 2
 
+[node name="RichTextLabel" parent="ScrollContainer/VBoxContainer/mock_glossary_element4" index="0"]
+grow_horizontal = 2
+grow_vertical = 2
+text = "aaaa"
+
 [node name="mock_glossary_element5" parent="ScrollContainer/VBoxContainer" instance=ExtResource("1_oiw43")]
 custom_minimum_size = Vector2(100, 100)
 layout_mode = 2
+
+[node name="RichTextLabel" parent="ScrollContainer/VBoxContainer/mock_glossary_element5" index="0"]
+grow_horizontal = 2
+grow_vertical = 2
+text = "bbac"
+
+[connection signal="text_changed" from="Title/TextEdit" to="Title/TextEdit" method="_on_text_changed"]
+
+[editable path="ScrollContainer/VBoxContainer/mock_glossary_element"]
+[editable path="ScrollContainer/VBoxContainer/mock_glossary_element2"]
+[editable path="ScrollContainer/VBoxContainer/mock_glossary_element3"]
+[editable path="ScrollContainer/VBoxContainer/mock_glossary_element4"]
+[editable path="ScrollContainer/VBoxContainer/mock_glossary_element5"]
