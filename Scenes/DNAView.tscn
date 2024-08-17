@@ -1,12 +1,28 @@
-[gd_scene load_steps=5 format=3 uid="uid://cbcarb7s7vlip"]
+[gd_scene load_steps=9 format=3 uid="uid://cbcarb7s7vlip"]
 
 [ext_resource type="Script" path="res://Scripts/DNAView.gd" id="1_3lxgb"]
 [ext_resource type="PackedScene" uid="uid://cgci433uj7qpp" path="res://Scenes/mock_mainGame.tscn" id="1_gpxm0"]
 [ext_resource type="PackedScene" uid="uid://28d7c2hau37f" path="res://Scenes/virus.tscn" id="2_7opqa"]
+[ext_resource type="Script" path="res://Scripts/camera_3d.gd" id="3_h4uuv"]
+
+[sub_resource type="PanoramaSkyMaterial" id="PanoramaSkyMaterial_8xubx"]
+
+[sub_resource type="Sky" id="Sky_hhebe"]
+sky_material = SubResource("PanoramaSkyMaterial_8xubx")
+
+[sub_resource type="Environment" id="Environment_onm8h"]
+background_mode = 2
+sky = SubResource("Sky_hhebe")
+ambient_light_source = 3
+ambient_light_color = Color(0.608634, 0.827709, 0.90809, 1)
+glow_enabled = true
+glow_intensity = 0.54
+glow_strength = 0.93
+fog_enabled = true
 
 [sub_resource type="Curve3D" id="Curve3D_w15hm"]
 _data = {
-"points": PackedVector3Array(0, 0, 0, 0, 0, 0, 5.37667, 0.2042, -4.63271, 0, 0, 0, 0, 0, 0, 3.55603, 0.202564, -0.0833865, 0, 0, 0, 0, 0, 0, -3.09061, 0.0620352, 1.58507, 0, 0, 0, 0, 0, 0, -6.12812, 0.216451, -2.66702, 0, 0, 0, 0, 0, 0, 5.37667, 0.2042, -4.63271),
+"points": PackedVector3Array(0, 0, 0, 0, 0, 0, 18.8286, 0.2042, -18.9317, 0, 0, 0, 0, 0, 0, 3.55603, 0.202564, -0.0833865, 0, 0, 0, 0, 0, 0, -3.09061, 0.0620352, 1.58507, 0, 0, 0, 0, 0, 0, -16.7434, 0.216451, -17.1728, 0, 0, 0, 0, 0, 0, 18.8286, 0.2042, -18.9317),
 "tilts": PackedFloat32Array(0, 0, 0, 0, 0)
 }
 point_count = 5
@@ -14,25 +30,28 @@ point_count = 5
 [node name="DnaView" type="Node3D"]
 script = ExtResource("1_3lxgb")
 mob_scene = ExtResource("2_7opqa")
+DNA_scene = NodePath("MockMainGame")
 
 [node name="Camera3D" type="Camera3D" parent="."]
-transform = Transform3D(0.926758, 0, 0.375658, 0, 1, 0, -0.375658, 0, 0.926758, 0.877569, 0, 1.65196)
+transform = Transform3D(0.985996, -0.00465646, 0.166704, 0, 0.99961, 0.0279216, -0.166769, -0.0275306, 0.985612, 0.877569, 0, 1.65196)
+environment = SubResource("Environment_onm8h")
+script = ExtResource("3_h4uuv")
 
 [node name="DirectionalLight3D" type="DirectionalLight3D" parent="."]
 transform = Transform3D(0.69734, 0, 0.71674, -0.449034, 0.779425, 0.43688, -0.558646, -0.626495, 0.543525, 2.09304, 1.23465, 1.93131)
 
 [node name="MockMainGame" parent="." instance=ExtResource("1_gpxm0")]
-transform = Transform3D(0.373878, 0, -0.927478, 0, 1, 0, 0.927478, 0, 0.373878, -1.34684, 0, -9.91037)
+transform = Transform3D(0.453123, 0.715356, -0.531925, -0.195555, 0.66193, 0.723607, 0.869734, -0.223862, 0.439828, -2.606, 1.379, -20.21)
 
 [node name="SpawnPath" type="Path3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.209005, -0.147326, -0.127531)
 curve = SubResource("Curve3D_w15hm")
 
 [node name="SpawnLocation" type="PathFollow3D" parent="SpawnPath"]
-transform = Transform3D(-0.928386, -0.000124048, 0.371549, -7.27575e-12, 0.999991, 0.000333868, -0.37154, 0.000309966, -0.928409, 5.37667, 0.2042, -4.63271)
+transform = Transform3D(-0.77693, -4.24557e-05, 0.62955, 0, 0.999988, 6.74375e-05, -0.629537, 5.23958e-05, -0.776946, 18.8286, 0.2042, -18.9317)
 
 [node name="Timer" type="Timer" parent="."]
-wait_time = 0.5
+wait_time = 4.616
 autostart = true
 
 [connection signal="timeout" from="Timer" to="." method="_on_timer_timeout"]
