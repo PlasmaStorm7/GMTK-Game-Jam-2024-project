@@ -1,0 +1,20 @@
+[gd_scene load_steps=4 format=3 uid="uid://dlnr7ye7plgvu"]
+
+[ext_resource type="PackedScene" uid="uid://da6fm1ly0j1ch" path="res://Scenes/Sequencer/circle_red.tscn" id="1_2gb0l"]
+[ext_resource type="PackedScene" uid="uid://dcbn8wg445lk8" path="res://Scenes/Sequencer/bara2D.tscn" id="2_8h82t"]
+[ext_resource type="PackedScene" uid="uid://ceye1utpvcinx" path="res://Scenes/Sequencer/circle_purple.tscn" id="3_0bffb"]
+
+[node name="DJ" type="VBoxContainer"]
+custom_minimum_size = Vector2(50, 50)
+size_flags_horizontal = 4
+theme_override_constants/separation = -5
+alignment = 2
+
+[node name="PatchRed" parent="." instance=ExtResource("1_2gb0l")]
+layout_mode = 2
+
+[node name="NinePatchRect" parent="." instance=ExtResource("2_8h82t")]
+layout_mode = 2
+
+[node name="PatchPurple" parent="." instance=ExtResource("3_0bffb")]
+layout_mode = 2
