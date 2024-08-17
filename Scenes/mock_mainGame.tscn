@@ -1,6 +1,6 @@
-[gd_scene load_steps=2 format=3 uid="uid://c1if8hsn7aob"]
+[gd_scene load_steps=2 format=3 uid="uid://cgci433uj7qpp"]
 
-[ext_resource type="PackedScene" uid="uid://bmyp320n2py1p" path="res://Scenes/mock_baraCuCerc.tscn" id="1_l6uff"]
+[ext_resource type="PackedScene" path="res://Scenes/mock_baraCuCerc.tscn" id="1_l6uff"]
 
 [node name="MockMainGame" type="Node3D"]
 
