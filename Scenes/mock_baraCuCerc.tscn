@@ -1,38 +1,57 @@
-[gd_scene load_steps=10 format=3 uid="uid://bmyp320n2py1p"]
+[gd_scene load_steps=11 format=3 uid="uid://bmyp320n2py1p"]
 
-[ext_resource type="Shader" uid="uid://b6m3s0x2pjh05" path="res://Assets/shaders/sfera.tres" id="1_pxogj"]
-[ext_resource type="Shader" uid="uid://b8oas6jre81cm" path="res://Assets/shaders/bara.tres" id="2_mbwix"]
-[ext_resource type="Shader" uid="uid://cekec5cf60wre" path="res://Assets/shaders/sfera2.tres" id="3_8exi1"]
+[ext_resource type="Shader" path="res://Scenes/cell_shader.gdshader" id="3_0wku4"]
+[ext_resource type="Texture2D" uid="uid://buy8vrjbix0yn" path="res://Assets/shaders/Color Gradient/color_gradient.tres" id="4_8gf47"]
+[ext_resource type="Texture2D" uid="uid://cfdqjvvn7ht6i" path="res://Assets/shaders/Color Gradient/fresnel_gradient.tres" id="5_0p53a"]
 
-[sub_resource type="ShaderMaterial" id="ShaderMaterial_22yhu"]
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_qj2la"]
 render_priority = 0
-shader = ExtResource("1_pxogj")
-shader_parameter/ColorParameter = Color(1, 0.85, 0, 1)
-shader_parameter/metalicism = 10.0
+shader = ExtResource("3_0wku4")
+shader_parameter/albedo = Color(1, 1, 1, 1)
+shader_parameter/color_gradient = ExtResource("4_8gf47")
+shader_parameter/fresnel_gradient = ExtResource("5_0p53a")
 
 [sub_resource type="SphereMesh" id="SphereMesh_1orgu"]
-material = SubResource("ShaderMaterial_22yhu")
-
-[sub_resource type="ShaderMaterial" id="ShaderMaterial_yie7n"]
-render_priority = 0
-shader = ExtResource("2_mbwix")
-shader_parameter/ColorParameter = Color(0.527081, 0.442844, 0.759769, 1)
-shader_parameter/metalicism = 1.0
+material = SubResource("ShaderMaterial_qj2la")
 
 [sub_resource type="CylinderMesh" id="CylinderMesh_fnw3n"]
-material = SubResource("ShaderMaterial_yie7n")
+material = SubResource("ShaderMaterial_qj2la")
 top_radius = 0.15
 bottom_radius = 0.15
 height = 4.0
 
-[sub_resource type="ShaderMaterial" id="ShaderMaterial_j4gdh"]
-render_priority = 0
-shader = ExtResource("3_8exi1")
-shader_parameter/ColorParameter = Color(0.88, 0.1408, 0.6336, 1)
-shader_parameter/metalicism = 10.0
-
 [sub_resource type="SphereMesh" id="SphereMesh_kw5u7"]
-material = SubResource("ShaderMaterial_j4gdh")
+lightmap_size_hint = Vector2i(17, 9)
+material = SubResource("ShaderMaterial_qj2la")
+
+[sub_resource type="Animation" id="Animation_glyqb"]
+resource_name = "spin"
+length = 4.0
+loop_mode = 1
+step = 0.5
+tracks/0/type = "rotation_3d"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = PackedFloat32Array(0, 1, 0, 0, 0, 1, 2, 1, 0, 1, 0, -4.37114e-08, 4, 1, 0, 8.74228e-08, 0, 1)
+
+[sub_resource type="Animation" id="Animation_niy1j"]
+length = 0.001
+tracks/0/type = "rotation_3d"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = PackedFloat32Array(0, 1, 0, 0, 0, 1)
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_86ug0"]
+_data = {
+"RESET": SubResource("Animation_niy1j"),
+"spin": SubResource("Animation_glyqb")
+}
 
 [node name="BaraCuCerc" type="Node3D"]
 
@@ -53,3 +72,8 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -2.42, 0, 0)
 
 [node name="MeshInstance3D" type="MeshInstance3D" parent="RigidBody3D"]
 mesh = SubResource("SphereMesh_kw5u7")
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+libraries = {
+"": SubResource("AnimationLibrary_86ug0")
+}
