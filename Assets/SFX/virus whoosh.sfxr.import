@@ -1,0 +1,17 @@
+[remap]
+
+importer="com.timothyqiu.gdfxr.importer"
+type="AudioStreamWAV"
+uid="uid://c3ya41ybyg08j"
+path="res://.godot/imported/virus whoosh.sfxr-cfff556f4835eadf3f37cb31f099e632.sample"
+
+[deps]
+
+source_file="res://Assets/SFX/virus whoosh.sfxr"
+dest_files=["res://.godot/imported/virus whoosh.sfxr-cfff556f4835eadf3f37cb31f099e632.sample"]
+
+[params]
+
+loop=false
+bit_depth=0
+sample_rate=0

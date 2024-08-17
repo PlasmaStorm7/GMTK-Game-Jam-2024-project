@@ -1,0 +1,17 @@
+[gd_scene load_steps=2 format=3 uid="uid://b58ipdnlmtk7o"]
+
+[ext_resource type="Texture2D" uid="uid://bilq23jc8jpo0" path="res://Assets/Sprites-models/Yellow-circle.svg" id="1_vn6bd"]
+
+[node name="PatchYellow" type="NinePatchRect"]
+custom_minimum_size = Vector2(100, 100)
+anchors_preset = -1
+anchor_left = 0.199327
+anchor_top = 0.532696
+anchor_right = 0.258774
+anchor_bottom = 0.714101
+offset_left = 0.264999
+offset_top = 0.0779953
+offset_right = 0.186996
+offset_bottom = -0.101006
+texture = ExtResource("1_vn6bd")
+metadata/_edit_use_anchors_ = true

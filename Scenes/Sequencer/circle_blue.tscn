@@ -1,0 +1,17 @@
+[gd_scene load_steps=2 format=3 uid="uid://dp25wrqakcp8d"]
+
+[ext_resource type="Texture2D" uid="uid://cjawifxq0mx24" path="res://Assets/Sprites-models/Blue-circle.svg" id="1_aq57o"]
+
+[node name="PatchBlue" type="NinePatchRect"]
+custom_minimum_size = Vector2(100, 100)
+anchors_preset = -1
+anchor_left = 0.0705282
+anchor_top = 0.184678
+anchor_right = 0.129975
+anchor_bottom = 0.366084
+offset_left = 0.264999
+offset_top = 0.0779953
+offset_right = 0.186996
+offset_bottom = -0.101006
+texture = ExtResource("1_aq57o")
+metadata/_edit_use_anchors_ = true
