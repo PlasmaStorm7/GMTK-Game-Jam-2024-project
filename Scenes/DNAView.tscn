@@ -1,22 +1,38 @@
-[gd_scene load_steps=3 format=3 uid="uid://cbcarb7s7vlip"]
+[gd_scene load_steps=5 format=3 uid="uid://cbcarb7s7vlip"]
 
-[ext_resource type="PackedScene" uid="uid://c1if8hsn7aob" path="res://Scenes/mock_mainGame.tscn" id="1_gpxm0"]
+[ext_resource type="Script" path="res://Scripts/DNAView.gd" id="1_3lxgb"]
+[ext_resource type="PackedScene" uid="uid://cgci433uj7qpp" path="res://Scenes/mock_mainGame.tscn" id="1_gpxm0"]
+[ext_resource type="PackedScene" uid="uid://28d7c2hau37f" path="res://Scenes/virus.tscn" id="2_7opqa"]
 
-[sub_resource type="BoxMesh" id="BoxMesh_e7d8l"]
+[sub_resource type="Curve3D" id="Curve3D_w15hm"]
+_data = {
+"points": PackedVector3Array(0, 0, 0, 0, 0, 0, 5.37667, 0.2042, -4.63271, 0, 0, 0, 0, 0, 0, 3.55603, 0.202564, -0.0833865, 0, 0, 0, 0, 0, 0, -3.09061, 0.0620352, 1.58507, 0, 0, 0, 0, 0, 0, -6.12812, 0.216451, -2.66702, 0, 0, 0, 0, 0, 0, 5.37667, 0.2042, -4.63271),
+"tilts": PackedFloat32Array(0, 0, 0, 0, 0)
+}
+point_count = 5
 
 [node name="DnaView" type="Node3D"]
+script = ExtResource("1_3lxgb")
+mob_scene = ExtResource("2_7opqa")
 
 [node name="Camera3D" type="Camera3D" parent="."]
 transform = Transform3D(0.926758, 0, 0.375658, 0, 1, 0, -0.375658, 0, 0.926758, 0.877569, 0, 1.65196)
-
-[node name="StaticBody3D" type="StaticBody3D" parent="."]
-
-[node name="MeshInstance3D" type="MeshInstance3D" parent="StaticBody3D"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1.66095, 0.905463, 0.847444)
-mesh = SubResource("BoxMesh_e7d8l")
 
 [node name="DirectionalLight3D" type="DirectionalLight3D" parent="."]
 transform = Transform3D(0.69734, 0, 0.71674, -0.449034, 0.779425, 0.43688, -0.558646, -0.626495, 0.543525, 2.09304, 1.23465, 1.93131)
 
 [node name="MockMainGame" parent="." instance=ExtResource("1_gpxm0")]
 transform = Transform3D(0.373878, 0, -0.927478, 0, 1, 0, 0.927478, 0, 0.373878, -1.34684, 0, -9.91037)
+
+[node name="SpawnPath" type="Path3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.209005, -0.147326, -0.127531)
+curve = SubResource("Curve3D_w15hm")
+
+[node name="SpawnLocation" type="PathFollow3D" parent="SpawnPath"]
+transform = Transform3D(-0.928386, -0.000124048, 0.371549, -7.27575e-12, 0.999991, 0.000333868, -0.37154, 0.000309966, -0.928409, 5.37667, 0.2042, -4.63271)
+
+[node name="Timer" type="Timer" parent="."]
+wait_time = 0.5
+autostart = true
+
+[connection signal="timeout" from="Timer" to="." method="_on_timer_timeout"]
