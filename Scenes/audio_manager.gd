@@ -40,8 +40,8 @@ func _crossfade():
 	_current_strand = _next_strand
 	
 	
-# Press D to crossfade between the 2 tracks
+# Press V to crossfade between the 2 tracks
 func _input(ev):
-	if Input.is_key_pressed(KEY_D):
+	if Input.is_key_pressed(KEY_V):
 		var new_strand = 2 if _current_strand == 1 else 1
 		change_strand(new_strand)
