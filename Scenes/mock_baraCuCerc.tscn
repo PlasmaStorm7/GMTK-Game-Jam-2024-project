@@ -1,0 +1,52 @@
+[gd_scene load_steps=10 format=3 uid="uid://bmyp320n2py1p"]
+
+[ext_resource type="Shader" uid="uid://b6m3s0x2pjh05" path="res://Assets/shaders/sfera.tres" id="1_pxogj"]
+[ext_resource type="Shader" uid="uid://b8oas6jre81cm" path="res://Assets/shaders/bara.tres" id="2_mbwix"]
+[ext_resource type="Shader" uid="uid://cekec5cf60wre" path="res://Assets/shaders/sfera2.tres" id="3_8exi1"]
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_22yhu"]
+render_priority = 0
+shader = ExtResource("1_pxogj")
+shader_parameter/ColorParameter = Color(1, 0.85, 0, 1)
+
+[sub_resource type="SphereMesh" id="SphereMesh_1orgu"]
+material = SubResource("ShaderMaterial_22yhu")
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_yie7n"]
+render_priority = 0
+shader = ExtResource("2_mbwix")
+shader_parameter/ColorParameter = Color(0.527081, 0.442844, 0.759769, 1)
+
+[sub_resource type="CylinderMesh" id="CylinderMesh_fnw3n"]
+material = SubResource("ShaderMaterial_yie7n")
+top_radius = 0.15
+bottom_radius = 0.15
+height = 4.0
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_j4gdh"]
+render_priority = 0
+shader = ExtResource("3_8exi1")
+shader_parameter/ColorParameter = Color(0.88, 0.1408, 0.6336, 1)
+
+[sub_resource type="SphereMesh" id="SphereMesh_kw5u7"]
+material = SubResource("ShaderMaterial_j4gdh")
+
+[node name="BaraCuCerc" type="Node3D"]
+
+[node name="sfera1" type="RigidBody3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2.42015, 0, 0)
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="sfera1"]
+mesh = SubResource("SphereMesh_1orgu")
+
+[node name="bara" type="RigidBody3D" parent="."]
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="bara"]
+transform = Transform3D(-4.37114e-08, -1, 0, 1, -4.37114e-08, 0, 0, 0, 1, 0, 0, 0)
+mesh = SubResource("CylinderMesh_fnw3n")
+
+[node name="RigidBody3D" type="RigidBody3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -2.42, 0, 0)
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="RigidBody3D"]
+mesh = SubResource("SphereMesh_kw5u7")
