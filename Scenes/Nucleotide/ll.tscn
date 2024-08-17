@@ -1,0 +1,30 @@
+[gd_scene load_steps=4 format=3 uid="uid://t45qff14hmor"]
+
+[ext_resource type="PackedScene" uid="uid://n2sfnepknmbl" path="res://Scenes/Sequencer/v_box_container_de_nucleotide.tscn" id="1_opc3j"]
+[ext_resource type="PackedScene" uid="uid://b58ipdnlmtk7o" path="res://Scenes/Sequencer/circle_yellow.tscn" id="2_wgepm"]
+[ext_resource type="PackedScene" uid="uid://dcbn8wg445lk8" path="res://Scenes/Sequencer/bara2D.tscn" id="3_07joi"]
+
+[node name="LL" type="Control"]
+layout_mode = 3
+anchors_preset = 0
+anchor_right = 0.064
+anchor_bottom = 0.264
+offset_right = 0.271996
+offset_bottom = -0.0720062
+
+[node name="LL" parent="." instance=ExtResource("1_opc3j")]
+layout_mode = 1
+anchors_preset = -1
+anchor_right = 1.014
+anchor_bottom = 1.03
+offset_right = -0.0360031
+offset_bottom = 0.0499878
+
+[node name="PatchYellow" parent="LL" instance=ExtResource("2_wgepm")]
+layout_mode = 2
+
+[node name="NinePatchRect" parent="LL" instance=ExtResource("3_07joi")]
+layout_mode = 2
+
+[node name="PatchYellow2" parent="LL" instance=ExtResource("2_wgepm")]
+layout_mode = 2

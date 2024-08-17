@@ -1,6 +1,6 @@
 [gd_scene load_steps=2 format=3 uid="uid://k1m2i41784ta"]
 
-[ext_resource type="Script" path="res://Scripts/sequencer_grid_container.gd" id="1_i564v"]
+[ext_resource type="Script" path="res://Scripts/sequencerHBox.gd" id="2_t5vdh"]
 
 [node name="SequencerUi" type="Control"]
 layout_mode = 3
@@ -32,27 +32,20 @@ grow_vertical = 2
 text = "SEQUENCER"
 language = "english"
 
-[node name="GridContainer" type="GridContainer" parent="."]
-custom_minimum_size = Vector2(200, 200)
-layout_mode = 1
-anchors_preset = -1
-anchor_right = 1.0
-anchor_bottom = 1.0
-offset_right = -1.0
-offset_bottom = -1.00003
-theme_override_constants/h_separation = 20
-theme_override_constants/v_separation = 10
-columns = 2
-script = ExtResource("1_i564v")
-
-[node name="HBoxContainer" type="HBoxContainer" parent="."]
+[node name="SequencerHBox" type="HBoxContainer" parent="."]
 layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
 offset_left = -1.0
-offset_top = 1.0
-offset_right = 1.0
 offset_bottom = -3.05176e-05
 grow_horizontal = 2
 grow_vertical = 2
+script = ExtResource("2_t5vdh")
+MAX_ELEMENTS = 4
+
+[node name="Timer" type="Timer" parent="SequencerHBox"]
+wait_time = 0.2
+one_shot = true
+
+[connection signal="timeout" from="SequencerHBox/Timer" to="SequencerHBox" method="_on_timer_timeout"]
