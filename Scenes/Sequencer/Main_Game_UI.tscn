@@ -1,7 +1,7 @@
 [gd_scene load_steps=3 format=3 uid="uid://cc1myi2kgcd2"]
 
 [ext_resource type="PackedScene" uid="uid://k1m2i41784ta" path="res://Scenes/Sequencer/Sequencer_UI.tscn" id="1_uvf6t"]
-[ext_resource type="PackedScene" uid="uid://cyvfvjo3weluf" path="res://Scenes/Sequencer/mock_glossary.tscn" id="2_ju6qn"]
+[ext_resource type="PackedScene" uid="uid://cs3nie2r7c7kt" path="res://Scenes/Glossary/Glossary_UI.tscn" id="2_663aq"]
 
 [node name="MainGameUi" type="Control"]
 layout_mode = 3
@@ -15,4 +15,14 @@ grow_vertical = 2
 
 [node name="SequencerUi" parent="CanvasLayer" instance=ExtResource("1_uvf6t")]
 
-[node name="MockGlossary" parent="CanvasLayer" instance=ExtResource("2_ju6qn")]
+[node name="Glossary_UI" parent="." instance=ExtResource("2_663aq")]
+layout_mode = 1
+
+[node name="TextEdit" parent="Glossary_UI/Title" index="1"]
+editable = false
+
+[connection signal="molecule_added" from="CanvasLayer/SequencerUi/SequencerHBox" to="Glossary_UI/Title/TextEdit" method="_on_sequencer_h_box_molecule_added"]
+[connection signal="sequence_completed" from="CanvasLayer/SequencerUi/SequencerHBox" to="Glossary_UI/Title/TextEdit" method="_on_sequencer_h_box_sequence_completed"]
+
+[editable path="CanvasLayer/SequencerUi"]
+[editable path="Glossary_UI"]

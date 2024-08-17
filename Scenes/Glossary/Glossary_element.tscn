@@ -1,0 +1,41 @@
+[gd_scene format=3 uid="uid://domm11iguay4m"]
+
+[node name="Glossary_element" type="ColorRect"]
+anchors_preset = -1
+anchor_right = 0.445
+anchor_bottom = 0.324
+offset_right = 0.359985
+offset_bottom = 0.0480042
+color = Color(0, 0, 0, 1)
+
+[node name="Stats" type="RichTextLabel" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = 241.0
+offset_right = -1.0
+grow_horizontal = 2
+grow_vertical = 2
+bbcode_enabled = true
+text = "[center]test[/center]
+"
+
+[node name="Name" type="RichTextLabel" parent="."]
+layout_mode = 1
+anchors_preset = -1
+anchor_right = 0.201
+anchor_bottom = 1.0
+offset_left = 2.0
+offset_top = 1.0
+offset_right = -0.112999
+bbcode_enabled = true
+
+[node name="Sequence" type="HBoxContainer" parent="."]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.179
+anchor_right = 0.745
+anchor_bottom = 1.0
+offset_left = 0.172997
+offset_right = -0.185028

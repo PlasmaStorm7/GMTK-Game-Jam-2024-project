@@ -4,7 +4,7 @@
 
 [node name="PatchRed" type="NinePatchRect"]
 z_index = 1
-custom_minimum_size = Vector2(75, 75)
+custom_minimum_size = Vector2(50, 50)
 anchors_preset = -1
 anchor_left = 0.0719754
 anchor_top = 0.559128
