@@ -1,0 +1,20 @@
+[gd_scene load_steps=4 format=3 uid="uid://chyq3xl5y38hy"]
+
+[ext_resource type="PackedScene" uid="uid://dp25wrqakcp8d" path="res://Scenes/Sequencer/circle_blue.tscn" id="1_8hr4f"]
+[ext_resource type="PackedScene" uid="uid://dcbn8wg445lk8" path="res://Scenes/Sequencer/bara2D.tscn" id="2_dq528"]
+[ext_resource type="PackedScene" uid="uid://da6fm1ly0j1ch" path="res://Scenes/Sequencer/circle_red.tscn" id="3_f6v4x"]
+
+[node name="AD" type="VBoxContainer"]
+theme_override_constants/separation = -5
+alignment = 2
+
+[node name="PatchBlue" parent="." instance=ExtResource("1_8hr4f")]
+layout_mode = 2
+axis_stretch_horizontal = 2
+axis_stretch_vertical = 2
+
+[node name="NinePatchRect" parent="." instance=ExtResource("2_dq528")]
+layout_mode = 2
+
+[node name="PatchRed" parent="." instance=ExtResource("3_f6v4x")]
+layout_mode = 2

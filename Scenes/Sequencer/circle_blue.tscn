@@ -1,0 +1,42 @@
+[gd_scene load_steps=4 format=3 uid="uid://dp25wrqakcp8d"]
+
+[ext_resource type="Texture2D" uid="uid://cjawifxq0mx24" path="res://Assets/Sprites-models/Blue-circle.svg" id="1_aq57o"]
+
+[sub_resource type="SystemFont" id="SystemFont_tulhx"]
+subpixel_positioning = 0
+
+[sub_resource type="Theme" id="Theme_5615i"]
+default_font = SubResource("SystemFont_tulhx")
+default_font_size = 30
+
+[node name="PatchBlue" type="NinePatchRect"]
+z_index = 1
+custom_minimum_size = Vector2(100, 100)
+anchors_preset = -1
+anchor_left = 0.0709505
+anchor_top = 0.185065
+anchor_right = 0.158
+anchor_bottom = 0.34
+offset_left = 0.264999
+offset_top = 0.0779953
+offset_right = -0.0160065
+offset_bottom = -0.320007
+texture = ExtResource("1_aq57o")
+metadata/_edit_use_anchors_ = true
+
+[node name="RichTextLabel" type="RichTextLabel" parent="."]
+z_index = 1
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.161
+anchor_top = 0.138
+anchor_right = 0.835
+anchor_bottom = 0.869
+offset_left = 21.9
+offset_top = 12.2
+offset_right = -23.5
+offset_bottom = -15.9
+grow_horizontal = 2
+grow_vertical = 2
+theme = SubResource("Theme_5615i")
+text = "A"

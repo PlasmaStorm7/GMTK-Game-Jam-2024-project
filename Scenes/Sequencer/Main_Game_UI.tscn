@@ -11,8 +11,8 @@ anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
 
-[node name="SequencerUi" parent="." instance=ExtResource("1_uvf6t")]
-layout_mode = 1
+[node name="CanvasLayer" type="CanvasLayer" parent="."]
 
-[node name="MockGlossary" parent="." instance=ExtResource("2_ju6qn")]
-layout_mode = 1
+[node name="SequencerUi" parent="CanvasLayer" instance=ExtResource("1_uvf6t")]
+
+[node name="MockGlossary" parent="CanvasLayer" instance=ExtResource("2_ju6qn")]
