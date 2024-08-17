@@ -1,40 +1,40 @@
 [gd_scene load_steps=2 format=3 uid="uid://cgci433uj7qpp"]
 
-[ext_resource type="PackedScene" path="res://Scenes/mock_baraCuCerc.tscn" id="1_l6uff"]
+[ext_resource type="PackedScene" uid="uid://bmyp320n2py1p" path="res://Scenes/baraCuCerc.tscn" id="1_l6uff"]
 
 [node name="MockMainGame" type="Node3D"]
 
 [node name="BaraCuCerc" parent="." instance=ExtResource("1_l6uff")]
 
 [node name="BaraCuCerc2" parent="." instance=ExtResource("1_l6uff")]
-transform = Transform3D(0.968318, -0.249695, -0.00363023, 0.24969, 0.968324, -0.00192868, 0.00399682, 0.000961152, 0.999992, 0, 0, 1.1587)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 1.1587)
 
 [node name="BaraCuCerc3" parent="." instance=ExtResource("1_l6uff")]
-transform = Transform3D(0.978552, 0.205999, 0, -0.205999, 0.978552, 0, 0, 0, 1, 0, 0, -1.35189)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -1.35189)
 
 [node name="BaraCuCerc4" parent="." instance=ExtResource("1_l6uff")]
-transform = Transform3D(0.725398, -0.688329, 0, 0.688329, 0.725398, 0, 0, 0, 1, 0, 0, 3.92278)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 3.92278)
 
 [node name="BaraCuCerc5" parent="." instance=ExtResource("1_l6uff")]
-transform = Transform3D(0.530547, -0.847654, -0.0013058, 0.847646, 0.530548, -0.00389786, 0.00399682, 0.000961152, 0.999992, 0, 0, 5.08148)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 5.08148)
 
 [node name="BaraCuCerc6" parent="." instance=ExtResource("1_l6uff")]
-transform = Transform3D(0.851635, -0.524135, 0, 0.524135, 0.851635, 0, 0, 0, 1, 0, 0, 2.57089)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 2.57089)
 
 [node name="BaraCuCerc7" parent="." instance=ExtResource("1_l6uff")]
-transform = Transform3D(0.0235772, 0.999722, 0, -0.999722, 0.0235772, 0, 0, 0, 1, 0, 0, -7.8231)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -7.8231)
 
 [node name="BaraCuCerc8" parent="." instance=ExtResource("1_l6uff")]
-transform = Transform3D(0.272451, 0.962168, -0.00201373, -0.962161, 0.272456, 0.00358375, 0.00399682, 0.000961152, 0.999992, 0, 0, -6.6644)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -6.6644)
 
 [node name="BaraCuCerc9" parent="." instance=ExtResource("1_l6uff")]
-transform = Transform3D(-0.18287, 0.983137, 0, -0.983137, -0.18287, 0, 0, 0, 1, 0, 0, -9.17499)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -9.17499)
 
 [node name="BaraCuCerc10" parent="." instance=ExtResource("1_l6uff")]
-transform = Transform3D(0.705241, 0.708968, 0, -0.708968, 0.705241, 0, 0, 0, 1, 0, 0, -3.90032)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -3.90032)
 
 [node name="BaraCuCerc11" parent="." instance=ExtResource("1_l6uff")]
-transform = Transform3D(0.859919, 0.510415, -0.00392756, -0.510415, 0.859928, 0.00121353, 0.00399682, 0.000961152, 0.999991, 0, 0, -2.74162)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 0.999999, 0, 0, -2.74162)
 
 [node name="BaraCuCerc12" parent="." instance=ExtResource("1_l6uff")]
-transform = Transform3D(0.544068, 0.839041, 0, -0.839041, 0.544068, 0, 0, 0, 1, 0, 0, -5.25221)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -5.25221)
