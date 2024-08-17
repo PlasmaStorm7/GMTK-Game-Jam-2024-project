@@ -1,18 +1,66 @@
-[gd_scene load_steps=3 format=3 uid="uid://28d7c2hau37f"]
+[gd_scene load_steps=10 format=3 uid="uid://28d7c2hau37f"]
 
 [ext_resource type="Script" path="res://Scripts/Virus.gd" id="1_h5x1t"]
+[ext_resource type="Script" path="res://Scripts/ProceduralVirus.gd" id="2_7ho67"]
+[ext_resource type="Script" path="res://Scripts/Virus_legs.gd" id="3_8e1iq"]
+[ext_resource type="Script" path="res://Scripts/camera_3d.gd" id="3_16x3b"]
 
-[sub_resource type="SphereMesh" id="SphereMesh_myx7m"]
+[sub_resource type="ImmediateMesh" id="ImmediateMesh_jdl14"]
+
+[sub_resource type="CylinderMesh" id="CylinderMesh_y03am"]
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_k6lil"]
+albedo_color = Color(0.796477, 0.291613, 0.195734, 1)
+metallic = 0.23
+roughness = 0.5
+normal_scale = 1.05
+rim_enabled = true
+rim = 0.15
+
+[sub_resource type="CapsuleMesh" id="CapsuleMesh_76d57"]
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_un4yc"]
+albedo_color = Color(0.486434, 0.132997, 0.212764, 1)
+metallic = 0.23
+roughness = 0.5
+normal_scale = 1.05
+rim_enabled = true
+rim = 0.15
 
 [node name="CharacterBody3D" type="CharacterBody3D"]
+transform = Transform3D(1, 1.06581e-14, 0, -1.06581e-14, 1, 0, 0, 0, 1, 0, 0, 0)
 script = ExtResource("1_h5x1t")
-min_speed = 2
-max_speed = 6
+min_speed = 1
+max_speed = 2
 
 [node name="StaticBody3D" type="StaticBody3D" parent="."]
 
 [node name="MeshInstance3D" type="MeshInstance3D" parent="StaticBody3D"]
-mesh = SubResource("SphereMesh_myx7m")
+mesh = SubResource("ImmediateMesh_jdl14")
+script = ExtResource("2_7ho67")
+
+[node name="MeshInstance3D2" type="MeshInstance3D" parent="StaticBody3D"]
+transform = Transform3D(1, 0, 0, 0, 1.5, 0, 0, 0, 1, 0, -1.4955, 0)
+mesh = SubResource("CylinderMesh_y03am")
+surface_material_override/0 = SubResource("StandardMaterial3D_k6lil")
+
+[node name="Node3D" type="Node3D" parent="StaticBody3D/MeshInstance3D2"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -1.48029, 0.0172194)
+script = ExtResource("3_8e1iq")
+num_tentacles = 6
+segment_length = 2.0
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="StaticBody3D/MeshInstance3D2"]
+transform = Transform3D(1.3, 0, 0, 0, 0.8, 0, 0, 0, 1.3, 0, -1.12548, 0)
+mesh = SubResource("CapsuleMesh_76d57")
+surface_material_override/0 = SubResource("StandardMaterial3D_un4yc")
 
 [node name="VisibleOnScreenNotifier3D" type="VisibleOnScreenNotifier3D" parent="."]
 aabb = AABB(-1, -1, -0.843105, 2, 2, 1.64422)
+
+[node name="Camera3D" type="Camera3D" parent="."]
+transform = Transform3D(0.992974, 0.063526, -0.0998347, 0.0146241, 0.771334, 0.636263, 0.117425, -0.633253, 0.764985, -1.15352, -0.0285189, 4.92209)
+script = ExtResource("3_16x3b")
+
+[node name="DirectionalLight3D" type="DirectionalLight3D" parent="."]
+transform = Transform3D(0.965926, 0, 0.258819, 0, 1, 0, -0.258819, 0, 0.965926, 0.270845, 0.687455, 2.28806)
