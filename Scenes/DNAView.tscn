@@ -1,9 +1,9 @@
 [gd_scene load_steps=14 format=3 uid="uid://cbcarb7s7vlip"]
 
 [ext_resource type="Script" path="res://Scripts/DNAView.gd" id="1_3lxgb"]
-[ext_resource type="PackedScene" uid="uid://cgci433uj7qpp" path="res://Scenes/mock_mainGame.tscn" id="1_gpxm0"]
 [ext_resource type="PackedScene" uid="uid://28d7c2hau37f" path="res://Scenes/virus.tscn" id="2_7opqa"]
 [ext_resource type="Script" path="res://Scripts/camera_3d.gd" id="3_h4uuv"]
+[ext_resource type="PackedScene" path="res://Scenes/baraCuCerc.tscn" id="4_c0igr"]
 [ext_resource type="Script" path="res://Scenes/audio_manager.gd" id="4_m41b1"]
 [ext_resource type="AudioStream" uid="uid://cm213y3anjrd7" path="res://Assets/SFX/1.wav" id="5_xbo8w"]
 [ext_resource type="AudioStream" uid="uid://bo8i6m8c6o37" path="res://Assets/SFX/2.wav" id="7_0xb8b"]
@@ -44,7 +44,7 @@ stream_2/volume = 0.0
 [node name="DnaView" type="Node3D"]
 script = ExtResource("1_3lxgb")
 mob_scene = ExtResource("2_7opqa")
-DNA_scene = NodePath("MockMainGame")
+DNA_scene = NodePath("BaraCuCerc")
 
 [node name="Camera3D" type="Camera3D" parent="."]
 transform = Transform3D(0.985996, -0.00465646, 0.166704, 0, 0.99961, 0.0279216, -0.166769, -0.0275306, 0.985612, 0.877569, 0, 1.65196)
@@ -54,8 +54,8 @@ script = ExtResource("3_h4uuv")
 [node name="DirectionalLight3D" type="DirectionalLight3D" parent="."]
 transform = Transform3D(0.69734, 0, 0.71674, -0.449034, 0.779425, 0.43688, -0.558646, -0.626495, 0.543525, 2.09304, 1.23465, 1.93131)
 
-[node name="MockMainGame" parent="." instance=ExtResource("1_gpxm0")]
-transform = Transform3D(0.453123, 0.715356, -0.531925, -0.195555, 0.66193, 0.723607, 0.869734, -0.223862, 0.439828, -2.606, 1.379, -20.21)
+[node name="BaraCuCerc" parent="." instance=ExtResource("4_c0igr")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 2.06308, -17.4369)
 
 [node name="SpawnPath" type="Path3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.209005, -0.147326, -0.127531)
