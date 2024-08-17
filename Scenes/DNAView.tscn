@@ -1,0 +1,16 @@
+[gd_scene load_steps=2 format=3 uid="uid://cbcarb7s7vlip"]
+
+[sub_resource type="BoxMesh" id="BoxMesh_e7d8l"]
+
+[node name="DnaView" type="Node3D"]
+
+[node name="Camera3D" type="Camera3D" parent="."]
+transform = Transform3D(0.926758, 0, 0.375658, 0, 1, 0, -0.375658, 0, 0.926758, 0.877569, 0, 1.65196)
+
+[node name="StaticBody3D" type="StaticBody3D" parent="."]
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="StaticBody3D"]
+mesh = SubResource("BoxMesh_e7d8l")
+
+[node name="DirectionalLight3D" type="DirectionalLight3D" parent="."]
+transform = Transform3D(0.69734, 0, 0.71674, -0.449034, 0.779425, 0.43688, -0.558646, -0.626495, 0.543525, 2.09304, 1.23465, 1.93131)
