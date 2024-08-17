@@ -1,0 +1,18 @@
+[gd_scene load_steps=3 format=3 uid="uid://28d7c2hau37f"]
+
+[ext_resource type="Script" path="res://Scripts/Virus.gd" id="1_h5x1t"]
+
+[sub_resource type="SphereMesh" id="SphereMesh_myx7m"]
+
+[node name="CharacterBody3D" type="CharacterBody3D"]
+script = ExtResource("1_h5x1t")
+min_speed = 2
+max_speed = 6
+
+[node name="StaticBody3D" type="StaticBody3D" parent="."]
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="StaticBody3D"]
+mesh = SubResource("SphereMesh_myx7m")
+
+[node name="VisibleOnScreenNotifier3D" type="VisibleOnScreenNotifier3D" parent="."]
+aabb = AABB(-1, -1, -0.843105, 2, 2, 1.64422)
