@@ -1,8 +1,12 @@
-[gd_scene load_steps=5 format=3 uid="uid://cbcarb7s7vlip"]
+[gd_scene load_steps=10 format=3 uid="uid://cbcarb7s7vlip"]
 
 [ext_resource type="Script" path="res://Scripts/DNAView.gd" id="1_3lxgb"]
 [ext_resource type="PackedScene" uid="uid://cgci433uj7qpp" path="res://Scenes/mock_mainGame.tscn" id="1_gpxm0"]
 [ext_resource type="PackedScene" uid="uid://28d7c2hau37f" path="res://Scenes/virus.tscn" id="2_7opqa"]
+[ext_resource type="Script" path="res://Scenes/audio_manager.gd" id="4_m41b1"]
+[ext_resource type="AudioStream" uid="uid://cm213y3anjrd7" path="res://Assets/SFX/1.wav" id="5_xbo8w"]
+[ext_resource type="AudioStream" uid="uid://bo8i6m8c6o37" path="res://Assets/SFX/2.wav" id="7_0xb8b"]
+[ext_resource type="AudioStream" uid="uid://db1qoyi4i2ed3" path="res://Assets/SFX/main.wav" id="9_kwnjl"]
 
 [sub_resource type="Curve3D" id="Curve3D_w15hm"]
 _data = {
@@ -10,6 +14,16 @@ _data = {
 "tilts": PackedFloat32Array(0, 0, 0, 0, 0)
 }
 point_count = 5
+
+[sub_resource type="AudioStreamSynchronized" id="AudioStreamSynchronized_6hc1w"]
+resource_local_to_scene = true
+stream_count = 3
+stream_0/stream = ExtResource("9_kwnjl")
+stream_0/volume = 0.0
+stream_1/stream = ExtResource("5_xbo8w")
+stream_1/volume = 0.0
+stream_2/stream = ExtResource("7_0xb8b")
+stream_2/volume = 0.0
 
 [node name="DnaView" type="Node3D"]
 script = ExtResource("1_3lxgb")
@@ -29,10 +43,17 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.209005, -0.147326, -0.1275
 curve = SubResource("Curve3D_w15hm")
 
 [node name="SpawnLocation" type="PathFollow3D" parent="SpawnPath"]
-transform = Transform3D(-0.928386, -0.000124048, 0.371549, -7.27575e-12, 0.999991, 0.000333868, -0.37154, 0.000309966, -0.928409, 5.37667, 0.2042, -4.63271)
+transform = Transform3D(-0.928386, -0.000124048, 0.371549, -7.27575e-12, 0.999991, 0.000333868, -0.37154, 0.000309966, -0.928408, 5.37667, 0.2042, -4.63271)
 
 [node name="Timer" type="Timer" parent="."]
 wait_time = 0.5
 autostart = true
+
+[node name="AudioManager" type="Node" parent="."]
+script = ExtResource("4_m41b1")
+
+[node name="Music" type="AudioStreamPlayer" parent="AudioManager"]
+stream = SubResource("AudioStreamSynchronized_6hc1w")
+autoplay = true
 
 [connection signal="timeout" from="Timer" to="." method="_on_timer_timeout"]
