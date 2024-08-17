@@ -1,29 +1,30 @@
 extends CharacterBody3D
 
-# Minimum speed of the mob in meters per second.
+# Minimum and maximum speed
 @export var min_speed = 10
-# Maximum speed of the mob in meters per second.
 @export var max_speed = 18
 
-func _physics_process(_delta):
+func _physics_process(delta):
+	# Move the character based on the computed velocity
 	move_and_slide()
 
-# This function will be called from the Main scene.
 func initialize(start_position, player_position):
-	# We position the mob by placing it at start_position
-	# and rotate it towards player_position, so it looks at the player.
-	look_at_from_position(start_position, player_position, Vector3.UP)
-	# Rotate this mob randomly within range of -45 and +45 degrees,
-	# so that it doesn't move directly towards the player.
-	rotate_y(randf_range(-PI / 4, PI / 4))
+	global_transform.origin = start_position  # Set the starting position
+	self.rotation.x = 0
+	self.rotation.z = 0
+	self.look_at(player_position, Vector3.UP)
+	self.rotation.y = 90
 
-	# We calculate a random speed (integer)
-	var random_speed = randi_range(min_speed, max_speed)
-	# We calculate a forward velocity that represents the speed.
-	velocity = Vector3.FORWARD * random_speed
-	# We then rotate the velocity vector based on the mob's Y rotation
-	# in order to move in the direction the mob is looking.
-	velocity = velocity.rotated(Vector3.UP, rotation.y)
+	scale = Vector3(0.1, 0.1, 0.1)
+	# Calculate the direction vector pointing towards the player
+	var direction = (player_position - start_position).normalized()
+
+	# Calculate a random speed within the specified range
+	var speed = randi_range(min_speed, max_speed)
+	
+	# Set the velocity vector
+	velocity = direction * speed
+
 
 func _on_visible_on_screen_notifier_3d_screen_exited():
 	queue_free()
