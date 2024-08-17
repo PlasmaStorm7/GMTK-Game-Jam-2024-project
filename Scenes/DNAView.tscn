@@ -2,6 +2,7 @@
 
 [ext_resource type="Script" path="res://Scripts/DNAView.gd" id="1_3lxgb"]
 [ext_resource type="PackedScene" uid="uid://cgci433uj7qpp" path="res://Scenes/mock_mainGame.tscn" id="1_gpxm0"]
+<<<<<<< Updated upstream
 [ext_resource type="PackedScene" uid="uid://28d7c2hau37f" path="res://Scenes/virus.tscn" id="2_7opqa"]
 [ext_resource type="Script" path="res://Scripts/camera_3d.gd" id="3_h4uuv"]
 [ext_resource type="Script" path="res://Scenes/audio_manager.gd" id="4_m41b1"]
@@ -23,6 +24,9 @@ glow_enabled = true
 glow_intensity = 0.54
 glow_strength = 0.93
 fog_enabled = true
+=======
+[ext_resource type="PackedScene" path="res://Scenes/virus.tscn" id="2_7opqa"]
+>>>>>>> Stashed changes
 
 [sub_resource type="Curve3D" id="Curve3D_w15hm"]
 _data = {
@@ -47,22 +51,37 @@ mob_scene = ExtResource("2_7opqa")
 DNA_scene = NodePath("MockMainGame")
 
 [node name="Camera3D" type="Camera3D" parent="."]
+<<<<<<< Updated upstream
 transform = Transform3D(0.985996, -0.00465646, 0.166704, 0, 0.99961, 0.0279216, -0.166769, -0.0275306, 0.985612, 0.877569, 0, 1.65196)
 environment = SubResource("Environment_onm8h")
 script = ExtResource("3_h4uuv")
+=======
+transform = Transform3D(1, 0, 0, 0, 0.990911, 0.134522, 0, -0.134522, 0.990911, 0, 2.10944, 2.10608)
+projection = 1
+fov = 109.807
+size = 7.25147
+>>>>>>> Stashed changes
 
 [node name="DirectionalLight3D" type="DirectionalLight3D" parent="."]
 transform = Transform3D(0.69734, 0, 0.71674, -0.449034, 0.779425, 0.43688, -0.558646, -0.626495, 0.543525, 2.09304, 1.23465, 1.93131)
 
 [node name="MockMainGame" parent="." instance=ExtResource("1_gpxm0")]
+<<<<<<< Updated upstream
 transform = Transform3D(0.453123, 0.715356, -0.531925, -0.195555, 0.66193, 0.723607, 0.869734, -0.223862, 0.439828, -2.606, 1.379, -20.21)
+=======
+transform = Transform3D(1, 0, 0, 0, -4.37114e-08, -1, 0, 1, -4.37114e-08, 0.04, 0, -3.55199)
+>>>>>>> Stashed changes
 
 [node name="SpawnPath" type="Path3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.209005, -0.147326, -0.127531)
 curve = SubResource("Curve3D_w15hm")
 
 [node name="SpawnLocation" type="PathFollow3D" parent="SpawnPath"]
+<<<<<<< Updated upstream
 transform = Transform3D(-0.77693, -4.24557e-05, 0.62955, 0, 0.999988, 6.74375e-05, -0.629537, 5.23958e-05, -0.776946, 18.8286, 0.2042, -18.9317)
+=======
+transform = Transform3D(-0.928386, -0.000124048, 0.371549, -7.27575e-12, 0.999991, 0.000333868, -0.37154, 0.000309966, -0.928408, 5.37667, 0.2042, -4.63271)
+>>>>>>> Stashed changes
 
 [node name="Timer" type="Timer" parent="."]
 wait_time = 4.616

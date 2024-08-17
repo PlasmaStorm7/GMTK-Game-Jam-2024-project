@@ -1,40 +1,27 @@
-[gd_scene load_steps=2 format=3 uid="uid://cgci433uj7qpp"]
+[gd_scene load_steps=5 format=3 uid="uid://cgci433uj7qpp"]
 
 [ext_resource type="PackedScene" uid="uid://bmyp320n2py1p" path="res://Scenes/baraCuCerc.tscn" id="1_l6uff"]
+[ext_resource type="Script" path="res://Scenes/dnaGenerator.gd" id="2_4261e"]
+
+[sub_resource type="Curve" id="Curve_c0n54"]
+_data = [Vector2(0, 0), 0.0, 0.0, 0, 0, Vector2(1, 1), 0.0, 0.0, 0, 0]
+point_count = 2
+
+[sub_resource type="Curve3D" id="Curve3D_bbxlf"]
+_data = {
+"points": PackedVector3Array(0, 0, 0, 0, 0, 0, 0, 1, 0),
+"tilts": PackedFloat32Array(0)
+}
+point_count = 1
 
 [node name="MockMainGame" type="Node3D"]
+transform = Transform3D(-4.37114e-08, 1, -4.37114e-08, 0, -4.37114e-08, -1, -1, -4.37114e-08, 1.91069e-15, 0, 0, 0)
 
 [node name="BaraCuCerc" parent="." instance=ExtResource("1_l6uff")]
 
-[node name="BaraCuCerc2" parent="." instance=ExtResource("1_l6uff")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 1.1587)
+[node name="Node" type="Node" parent="."]
+script = ExtResource("2_4261e")
+curva = SubResource("Curve_c0n54")
 
-[node name="BaraCuCerc3" parent="." instance=ExtResource("1_l6uff")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -1.35189)
-
-[node name="BaraCuCerc4" parent="." instance=ExtResource("1_l6uff")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 3.92278)
-
-[node name="BaraCuCerc5" parent="." instance=ExtResource("1_l6uff")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 5.08148)
-
-[node name="BaraCuCerc6" parent="." instance=ExtResource("1_l6uff")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 2.57089)
-
-[node name="BaraCuCerc7" parent="." instance=ExtResource("1_l6uff")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -7.8231)
-
-[node name="BaraCuCerc8" parent="." instance=ExtResource("1_l6uff")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -6.6644)
-
-[node name="BaraCuCerc9" parent="." instance=ExtResource("1_l6uff")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -9.17499)
-
-[node name="BaraCuCerc10" parent="." instance=ExtResource("1_l6uff")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -3.90032)
-
-[node name="BaraCuCerc11" parent="." instance=ExtResource("1_l6uff")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 0.999999, 0, 0, -2.74162)
-
-[node name="BaraCuCerc12" parent="." instance=ExtResource("1_l6uff")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -5.25221)
+[node name="Path3D" type="Path3D" parent="."]
+curve = SubResource("Curve3D_bbxlf")
