@@ -1,9 +1,13 @@
-[gd_scene load_steps=9 format=3 uid="uid://cbcarb7s7vlip"]
+[gd_scene load_steps=14 format=3 uid="uid://cbcarb7s7vlip"]
 
 [ext_resource type="Script" path="res://Scripts/DNAView.gd" id="1_3lxgb"]
 [ext_resource type="PackedScene" uid="uid://cgci433uj7qpp" path="res://Scenes/mock_mainGame.tscn" id="1_gpxm0"]
 [ext_resource type="PackedScene" uid="uid://28d7c2hau37f" path="res://Scenes/virus.tscn" id="2_7opqa"]
 [ext_resource type="Script" path="res://Scripts/camera_3d.gd" id="3_h4uuv"]
+[ext_resource type="Script" path="res://Scenes/audio_manager.gd" id="4_m41b1"]
+[ext_resource type="AudioStream" uid="uid://cm213y3anjrd7" path="res://Assets/SFX/1.wav" id="5_xbo8w"]
+[ext_resource type="AudioStream" uid="uid://bo8i6m8c6o37" path="res://Assets/SFX/2.wav" id="7_0xb8b"]
+[ext_resource type="AudioStream" uid="uid://db1qoyi4i2ed3" path="res://Assets/SFX/main.wav" id="9_kwnjl"]
 
 [sub_resource type="PanoramaSkyMaterial" id="PanoramaSkyMaterial_8xubx"]
 
@@ -26,6 +30,16 @@ _data = {
 "tilts": PackedFloat32Array(0, 0, 0, 0, 0)
 }
 point_count = 5
+
+[sub_resource type="AudioStreamSynchronized" id="AudioStreamSynchronized_6hc1w"]
+resource_local_to_scene = true
+stream_count = 3
+stream_0/stream = ExtResource("9_kwnjl")
+stream_0/volume = 0.0
+stream_1/stream = ExtResource("5_xbo8w")
+stream_1/volume = 0.0
+stream_2/stream = ExtResource("7_0xb8b")
+stream_2/volume = 0.0
 
 [node name="DnaView" type="Node3D"]
 script = ExtResource("1_3lxgb")
@@ -53,5 +67,12 @@ transform = Transform3D(-0.77693, -4.24557e-05, 0.62955, 0, 0.999988, 6.74375e-0
 [node name="Timer" type="Timer" parent="."]
 wait_time = 4.616
 autostart = true
+
+[node name="AudioManager" type="Node" parent="."]
+script = ExtResource("4_m41b1")
+
+[node name="Music" type="AudioStreamPlayer" parent="AudioManager"]
+stream = SubResource("AudioStreamSynchronized_6hc1w")
+autoplay = true
 
 [connection signal="timeout" from="Timer" to="." method="_on_timer_timeout"]
