@@ -1,13 +1,21 @@
-[gd_resource type="VisualShader" load_steps=2 format=3 uid="uid://b6m3s0x2pjh05"]
+[gd_resource type="VisualShader" load_steps=3 format=3 uid="uid://b6m3s0x2pjh05"]
 
 [sub_resource type="VisualShaderNodeColorParameter" id="VisualShaderNodeColorParameter_mlmjx"]
 parameter_name = "ColorParameter"
+
+[sub_resource type="VisualShaderNodeFloatParameter" id="VisualShaderNodeFloatParameter_t0sdm"]
+parameter_name = "metalicism"
+hint = 2
+max = 10.0
+default_value_enabled = true
+default_value = 10.0
 
 [resource]
 code = "shader_type spatial;
 render_mode blend_mix, depth_draw_opaque, cull_back, diffuse_lambert, specular_schlick_ggx;
 
 uniform vec4 ColorParameter : source_color;
+uniform float metalicism : hint_range(0, 10, 0.10000000149012) = 10;
 
 
 
@@ -16,13 +24,19 @@ void fragment() {
 	vec4 n_out2p0 = ColorParameter;
 
 
+// FloatParameter:3
+	float n_out3p0 = metalicism;
+
+
 // Output:0
 	ALBEDO = vec3(n_out2p0.xyz);
+	METALLIC = n_out3p0;
 
 
 }
 "
-graph_offset = Vector2(-117.843, -73.0661)
 nodes/fragment/2/node = SubResource("VisualShaderNodeColorParameter_mlmjx")
 nodes/fragment/2/position = Vector2(60, 180)
-nodes/fragment/connections = PackedInt32Array(2, 0, 0, 0)
+nodes/fragment/3/node = SubResource("VisualShaderNodeFloatParameter_t0sdm")
+nodes/fragment/3/position = Vector2(20, 380)
+nodes/fragment/connections = PackedInt32Array(2, 0, 0, 0, 3, 0, 0, 2)

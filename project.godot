@@ -45,4 +45,5 @@ copy_path="res://Maack template scenes"
 [physics]
 
 3d/physics_engine="JoltPhysics3D"
+3d/default_gravity=0.0
 common/physics_interpolation=true

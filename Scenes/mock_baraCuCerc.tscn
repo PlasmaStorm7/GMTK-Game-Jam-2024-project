@@ -8,6 +8,7 @@
 render_priority = 0
 shader = ExtResource("1_pxogj")
 shader_parameter/ColorParameter = Color(1, 0.85, 0, 1)
+shader_parameter/metalicism = 10.0
 
 [sub_resource type="SphereMesh" id="SphereMesh_1orgu"]
 material = SubResource("ShaderMaterial_22yhu")
@@ -16,6 +17,7 @@ material = SubResource("ShaderMaterial_22yhu")
 render_priority = 0
 shader = ExtResource("2_mbwix")
 shader_parameter/ColorParameter = Color(0.527081, 0.442844, 0.759769, 1)
+shader_parameter/metalicism = 1.0
 
 [sub_resource type="CylinderMesh" id="CylinderMesh_fnw3n"]
 material = SubResource("ShaderMaterial_yie7n")
@@ -27,6 +29,7 @@ height = 4.0
 render_priority = 0
 shader = ExtResource("3_8exi1")
 shader_parameter/ColorParameter = Color(0.88, 0.1408, 0.6336, 1)
+shader_parameter/metalicism = 10.0
 
 [sub_resource type="SphereMesh" id="SphereMesh_kw5u7"]
 material = SubResource("ShaderMaterial_j4gdh")
