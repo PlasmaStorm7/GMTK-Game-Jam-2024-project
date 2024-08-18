@@ -30,3 +30,6 @@ mesh = SubResource("SphereMesh_n7hly")
 [node name="sugarPhospateBackbone2" type="MeshInstance3D" parent="."]
 transform = Transform3D(2, 0, 0, 0, 2, 0, 0, 0, 2, -2, 0, 0)
 mesh = SubResource("SphereMesh_yvcjm")
+
+[node name="VisibleOnScreenNotifier3D" type="VisibleOnScreenNotifier3D" parent="."]
+aabb = AABB(-3.16796, -1, -1, 6.33592, 2, 2)
