@@ -1,40 +1,53 @@
 extends Control
 
 var valid_sequences = {
-		"AADJ": {
-			"immunity" : +1,
-			"hp" : 0,
-			"strength": 0
+		"JJDJ": {
+			"dodecahedron" : +1,
+			"icosahedron" : 0,
+			"octahedron": 0,
+			"potato": +1
 		}, 
 		"JAJA": {	
-			"immunity" : 0,
-			"hp" : +1,
-			"strength": 0
+			"dodecahedron" : 0,
+			"icosahedron" : +1,
+			"octahedron": 0,
+			"potato": +1
 		},
-		 "LADA": {	
-			"immunity" : 0,
-			"hp" : 0,
-			"strength": +1
+		 "LADJ": {	
+			"dodecahedron" : 0,
+			"icosahedron" : 0,
+			"octahedron": +1,
+			"potato": +1
 		},
 		"JLAD": {	
-			"immunity" : 0,
-			"hp" : -1,
-			"strength": +3
+			"dodecahedron" : +1,
+			"icosahedron" : +1,
+			"octahedron": +1,
+			"potato": -1
 		},
-		"DAJA": {	
-			"immunity" : -2,
-			"hp" : +4,
-			"strength": 0
+		"DAJJ": {	
+			"dodecahedron" : -1,
+			"icosahedron" : -1,
+			"octahedron": -1,
+			"potato": +4
 		},
-		"LALA": {	
-			"immunity" : -1,
-			"hp" : -1,
-			"strength": +4
+		"LDLJ": {	
+			"dodecahedron" : +3,
+			"icosahedron" : 0,
+			"octahedron": 0,
+			"potato": -2
 		},
-		"LAJD": {	
-			"immunity" : +3,
-			"hp" : +3,
-			"strength": -5
+		"LDJD": {	
+			"dodecahedron" : 0,
+			"icosahedron" : +2,
+			"octahedron": 0,
+			"potato": -1
+		},
+		"AJJA":{
+			"dodecahedron" : 0,
+			"icosahedron" : 0,
+			"octahedron": +2,
+			"potato": -1
 		}
 	}
 var hp = 5
@@ -49,6 +62,12 @@ func create_sequence(name):
 	var scene = ResourceLoader.load(path)
 	var instance = scene.instantiate()
 	return instance
+	
+func create_stat(name):
+	var path = "res://Scenes/Icons/" + name + ".tscn"
+	var scene = ResourceLoader.load(path)
+	var instance = scene.instantiate()
+	return instance
 
 func _ready():
 	for sequence in valid_sequences.keys():
@@ -60,12 +79,26 @@ func _ready():
 		instance.set_custom_minimum_size(Vector2(0, 110)) 
 		instance.get_node("Name").bbcode_enabled = true
 		instance.get_node("Name").set_text("[center]" + nucleotide_name + "[/center]")
-		instance.get_node("Stats").bbcode_enabled = true
-		instance.get_node("Stats").set_text("[center]" 
-		+ "HP: " + str(valid_sequences[nucleotide_name].hp) + "\n"
-		+ "Immunity: " + str(valid_sequences[nucleotide_name].immunity) + "\n"
-		+ "strength: " + str(valid_sequences[nucleotide_name].strength)
-		+ "[/center]")
+		
+		if valid_sequences[nucleotide_name].potato > 0:
+			instance.get_node("Stats").add_child(create_stat("potato_up"))
+		elif valid_sequences[nucleotide_name].potato < 0:
+			instance.get_node("Stats").add_child(create_stat("potato_down"))
+			
+		if valid_sequences[nucleotide_name].octahedron > 0:
+			instance.get_node("Stats").add_child(create_stat("octahedron_up"))
+		elif valid_sequences[nucleotide_name].octahedron < 0:
+			instance.get_node("Stats").add_child(create_stat("octahedron_down"))
+			
+		if valid_sequences[nucleotide_name].dodecahedron > 0:
+			instance.get_node("Stats").add_child(create_stat("dodecahedron_up"))
+		elif valid_sequences[nucleotide_name].dodecahedron < 0:
+			instance.get_node("Stats").add_child(create_stat("dodecahedron_down"))
+			
+		if valid_sequences[nucleotide_name].icosahedron > 0:
+			instance.get_node("Stats").add_child(create_stat("icosahedron_up"))
+		elif valid_sequences[nucleotide_name].icosahedron < 0:
+			instance.get_node("Stats").add_child(create_stat("icosahedron_down"))
 		instance.get_node("Sequence").add_child(create_sequence(first_nucleotide))
 		instance.get_node("Sequence").add_child(create_sequence(second_nucleotide))
 		v_box_container.add_child(instance)
