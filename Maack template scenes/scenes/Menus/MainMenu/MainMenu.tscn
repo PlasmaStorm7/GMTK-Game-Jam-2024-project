@@ -8,3 +8,6 @@
 game_scene_path = "res://Maack template scenes/scenes/GameScene/GameUI.tscn"
 options_packed_scene = ExtResource("2_oupk5")
 credits_packed_scene = ExtResource("3_uj7ae")
+
+[node name="BackgroundMusicPlayer" parent="." index="1"]
+bus = &"Master"
