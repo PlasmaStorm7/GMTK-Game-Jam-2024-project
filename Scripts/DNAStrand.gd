@@ -34,3 +34,6 @@ func create_material(color: Color):
 	var material = StandardMaterial3D.new()
 	material.albedo_color = color
 	return material
+
+func _on_visible_on_screen_notifier_3d_screen_exited():
+	queue_free()
