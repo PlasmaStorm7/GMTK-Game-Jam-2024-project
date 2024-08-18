@@ -35,10 +35,13 @@ func _on_timer_timeout() -> void:
 		# the spawner is a bit lower and we want the viruses to go towards the center of the column
 		
 	mob.initialize(mob_spawn_location.position, player_position)
-
 	# Spawn the mob by adding it to the Main scene.
 
 	mob_group.add_child(mob)
 
 func _on_resume_button_pressed():
 	pause_menu.visible=not pause_menu.visible
+
+
+func _on_timer_2_timeout() -> void:
+	SceneLoader.load_scene("res://Maack template scenes/scenes/WinScreen/WinScreen.tscn")

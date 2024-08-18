@@ -14,7 +14,7 @@
 [ext_resource type="AudioStream" uid="uid://cadg0awih7g54" path="res://Assets/SFX/5.wav" id="11_2ygku"]
 [ext_resource type="AudioStream" uid="uid://clklmnv6sfuhr" path="res://Assets/SFX/6.wav" id="12_by1mb"]
 [ext_resource type="Script" path="res://Scripts/Plant_DNA.gd" id="13_dcy1g"]
-[ext_resource type="PackedScene" path="res://Scenes/DNAStrand.tscn" id="14_y6eb8"]
+[ext_resource type="PackedScene" uid="uid://c63gd1ud4bjrv" path="res://Scenes/DNAStrand.tscn" id="14_y6eb8"]
 
 [sub_resource type="PanoramaSkyMaterial" id="PanoramaSkyMaterial_8xubx"]
 
@@ -115,10 +115,15 @@ template_scene = ExtResource("14_y6eb8")
 wait_time = 0.75
 autostart = true
 
+[node name="Timer2" type="Timer" parent="."]
+wait_time = 120.0
+autostart = true
+
 [connection signal="timeout" from="Timer" to="." method="_on_timer_timeout"]
 [connection signal="sequence_completed" from="CanvasLayer/MainGameUi/CanvasLayer/SequencerUi/SequencerHBox" to="PlantDNA" method="_on_sequencer_h_box_sequence_completed"]
 [connection signal="pressed" from="CanvasLayer/PauseMenu/MenuContainer/VBoxContainer/MenuButtons/ResumeButton" to="." method="_on_resume_button_pressed"]
 [connection signal="timeout" from="TimerPlantDNA" to="PlantDNA" method="_on_timer_plant_dna_timeout"]
+[connection signal="timeout" from="Timer2" to="." method="_on_timer_2_timeout"]
 
 [editable path="CanvasLayer/MainGameUi"]
 [editable path="CanvasLayer/MainGameUi/CanvasLayer/SequencerUi"]
