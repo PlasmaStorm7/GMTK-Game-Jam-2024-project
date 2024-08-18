@@ -3,17 +3,43 @@
 [ext_resource type="PackedScene" uid="uid://dp25wrqakcp8d" path="res://Scenes/Sequencer/circle_blue.tscn" id="2_o1n0k"]
 [ext_resource type="PackedScene" uid="uid://dcbn8wg445lk8" path="res://Scenes/Sequencer/bara2D.tscn" id="3_celom"]
 
-[node name="AA" type="VBoxContainer"]
-offset_right = 40.0
-offset_bottom = 40.0
-theme_override_constants/separation = -5
-alignment = 2
+[node name="AA" type="ColorRect"]
+offset_right = 50.0
+offset_bottom = 105.0
+color = Color(0, 0, 0, 1)
 
 [node name="PatchBlue" parent="." instance=ExtResource("2_o1n0k")]
 layout_mode = 2
+anchors_preset = 0
+anchor_left = 0.0
+anchor_top = 0.0
+anchor_right = 0.0
+anchor_bottom = 0.0
+offset_left = 0.0
+offset_top = 0.0
+offset_right = 50.0
+offset_bottom = 50.0
 
 [node name="NinePatchRect" parent="." instance=ExtResource("3_celom")]
 layout_mode = 2
+anchors_preset = 0
+anchor_left = 0.0
+anchor_top = 0.0
+anchor_right = 0.0
+anchor_bottom = 0.0
+offset_left = 22.0
+offset_top = 45.0
+offset_right = 27.0
+offset_bottom = 60.0
 
 [node name="PatchBlue2" parent="." instance=ExtResource("2_o1n0k")]
 layout_mode = 2
+anchors_preset = 0
+anchor_left = 0.0
+anchor_top = 0.0
+anchor_right = 0.0
+anchor_bottom = 0.0
+offset_left = 0.0
+offset_top = 55.0
+offset_right = 50.0
+offset_bottom = 105.0
