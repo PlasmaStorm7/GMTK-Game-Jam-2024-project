@@ -1,4 +1,6 @@
+
 [gd_scene load_steps=18 format=3 uid="uid://cbcarb7s7vlip"]
+
 
 [ext_resource type="Script" path="res://Scripts/DNAView.gd" id="1_3lxgb"]
 [ext_resource type="PackedScene" uid="uid://28d7c2hau37f" path="res://Scenes/virus.tscn" id="2_7opqa"]
@@ -8,10 +10,14 @@
 [ext_resource type="AudioStream" uid="uid://bo8i6m8c6o37" path="res://Assets/SFX/2.wav" id="7_0xb8b"]
 [ext_resource type="AudioStream" uid="uid://db1qoyi4i2ed3" path="res://Assets/SFX/main.wav" id="9_kwnjl"]
 [ext_resource type="PackedScene" uid="uid://cc1myi2kgcd2" path="res://Scenes/Sequencer/Main_Game_UI.tscn" id="9_typ40"]
+
+[ext_resource type="PackedScene" uid="uid://ddn3bxc0qyabs" path="res://Maack template scenes/scenes/Menus/PauseMenu/PauseMenu.tscn" id="9_vp5pq"]
+
 [ext_resource type="AudioStream" uid="uid://chnh72rvjfv0d" path="res://Assets/SFX/3.wav" id="9_w0cy7"]
 [ext_resource type="AudioStream" uid="uid://b0re47t2a648v" path="res://Assets/SFX/4.wav" id="10_inc2m"]
 [ext_resource type="AudioStream" uid="uid://cadg0awih7g54" path="res://Assets/SFX/5.wav" id="11_2ygku"]
 [ext_resource type="AudioStream" uid="uid://clklmnv6sfuhr" path="res://Assets/SFX/6.wav" id="12_by1mb"]
+
 
 [sub_resource type="PanoramaSkyMaterial" id="PanoramaSkyMaterial_8xubx"]
 
@@ -97,7 +103,16 @@ process_mode = 1
 
 [node name="MainGameUi" parent="CanvasLayer" instance=ExtResource("9_typ40")]
 
+
+[node name="PauseMenu" parent="CanvasLayer" instance=ExtResource("9_vp5pq")]
+process_mode = 2
+visible = false
+
 [node name="MobGroup" type="Node" parent="."]
 process_mode = 1
 
+
 [connection signal="timeout" from="Timer" to="." method="_on_timer_timeout"]
+[connection signal="pressed" from="CanvasLayer/PauseMenu/MenuContainer/VBoxContainer/MenuButtons/ResumeButton" to="." method="_on_resume_button_pressed"]
+
+[editable path="CanvasLayer/PauseMenu"]
