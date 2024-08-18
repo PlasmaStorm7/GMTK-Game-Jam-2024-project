@@ -18,7 +18,7 @@ grow_vertical = 2
 [node name="Glossary_UI" parent="." instance=ExtResource("2_663aq")]
 layout_mode = 1
 
-[node name="TextEdit" parent="Glossary_UI/Title" index="1"]
+[node name="TextEdit" parent="Glossary_UI/Title" index="0"]
 editable = false
 
 [connection signal="molecule_added" from="CanvasLayer/SequencerUi/SequencerHBox" to="Glossary_UI/Title/TextEdit" method="_on_sequencer_h_box_molecule_added"]

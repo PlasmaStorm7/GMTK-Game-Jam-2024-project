@@ -2,6 +2,7 @@ extends Node
 
 @export var mob_scene: PackedScene
 @export var DNA_scene: NodePath
+@onready var pause_menu = $CanvasLayer/PauseMenu
 
 
 func _unhandled_input(event):
@@ -9,6 +10,7 @@ func _unhandled_input(event):
 	if Input.is_action_just_pressed("pause"):
 		print("pressed ESC")
 		get_tree().paused=not get_tree().paused
+		pause_menu.visible=not pause_menu.visible
 		
 func _on_timer_timeout() -> void:
 	# Create a new instance of the Mob scene.
@@ -29,3 +31,7 @@ func _on_timer_timeout() -> void:
 
 	# Spawn the mob by adding it to the Main scene.
 	add_child(mob)
+
+
+func _on_resume_button_pressed():
+	pause_menu.visible=not pause_menu.visible
