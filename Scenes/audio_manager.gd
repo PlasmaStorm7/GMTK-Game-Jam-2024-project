@@ -1,7 +1,7 @@
 extends Node
 
 const initial_strand = 1
-const strand_number = 2
+const strand_number = 6
 
 @onready var music: AudioStreamPlayer = $Music
 @onready var sync: AudioStreamSynchronized = music.stream
@@ -9,11 +9,11 @@ const strand_number = 2
 # Called when the node enters the scene tree for the first time.
 # Prepares music by silencing unneeded tracks
 func _ready() -> void:
-	for i in strand_number:
-		var index = i + 1
-		if index != initial_strand:
-			sync.set_sync_stream_volume(index, -80.0)
+	start_music() # delete this call after music is started programatically
+	sync.set_sync_stream_volume(initial_strand, 0.0)
 	
+func start_music() -> void:
+	music.play()
 
 var _current_strand = initial_strand
 var _next_strand = initial_strand
@@ -43,5 +43,7 @@ func _crossfade():
 # Press V to crossfade between the 2 tracks
 func _input(ev):
 	if Input.is_key_pressed(KEY_V):
-		var new_strand = 2 if _current_strand == 1 else 1
+		var new_strand = _current_strand + 1
+		if new_strand > strand_number:
+			new_strand = 1
 		change_strand(new_strand)
