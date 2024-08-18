@@ -13,7 +13,7 @@ var target_speed: float = 1
 var time_since_last_change: float = 0
 var accel_moment: bool = true
 var direction=  Vector3.FORWARD# Where the virus will go
-var health = 20.0
+var health = 12.0
 var goal = Vector3(0,0,0)
 
 signal potato_damage
