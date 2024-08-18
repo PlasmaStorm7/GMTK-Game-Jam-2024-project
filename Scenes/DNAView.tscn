@@ -86,4 +86,7 @@ process_mode = 1
 
 [node name="MainGameUi" parent="CanvasLayer" instance=ExtResource("9_typ40")]
 
+[node name="MobGroup" type="Node" parent="."]
+process_mode = 1
+
 [connection signal="timeout" from="Timer" to="." method="_on_timer_timeout"]
