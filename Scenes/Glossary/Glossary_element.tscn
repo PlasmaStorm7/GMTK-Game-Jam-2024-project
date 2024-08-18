@@ -8,18 +8,21 @@ offset_right = 0.359985
 offset_bottom = 0.0480042
 color = Color(0, 0, 0, 1)
 
-[node name="Stats" type="RichTextLabel" parent="."]
+[node name="Stats" type="GridContainer" parent="."]
+custom_minimum_size = Vector2(50, 50)
 layout_mode = 1
-anchors_preset = 15
+anchors_preset = -1
+anchor_left = 0.561
 anchor_right = 1.0
 anchor_bottom = 1.0
-offset_left = 241.0
+offset_left = 0.20697
+offset_top = 2.0
 offset_right = -1.0
 grow_horizontal = 2
 grow_vertical = 2
-bbcode_enabled = true
-text = "[center]test[/center]
-"
+theme_override_constants/h_separation = 5
+theme_override_constants/v_separation = 5
+columns = 2
 
 [node name="Name" type="RichTextLabel" parent="."]
 layout_mode = 1
