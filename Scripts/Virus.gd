@@ -13,6 +13,23 @@ var target_speed: float = 1
 var time_since_last_change: float = 0
 var accel_moment: bool = true
 var direction=  Vector3.FORWARD# Where the virus will go
+var health = 20.0
+
+func _ready():
+	var emitter = get_node("/root/DnaView/PlantDNA")
+	emitter.connect("deal_damage", self._on_deal_damage)
+	emitter.connect("grow_potatoes", self._on_grow_potatoes)
+
+func _on_deal_damage(damage1,damage2,damage3):
+	print("Damage message received: ", damage1, health)
+	health -= damage1
+	if health < 0:
+		print("Dead ", health)
+		queue_free()
+	
+
+func _on_grow_potatoes(amount):
+	print("Time to grow potatoes!", amount)
 
 func _physics_process(delta):
 	# Update the time since last speed change
