@@ -1,42 +1,107 @@
 extends Control
 
-var nucleotide_names = []
+var valid_sequences = {
+		"JJDJ": {
+			"dodecahedron" : +1,
+			"icosahedron" : 0,
+			"octahedron": 0,
+			"potato": +1
+		}, 
+		"JAJA": {	
+			"dodecahedron" : 0,
+			"icosahedron" : +1,
+			"octahedron": 0,
+			"potato": +1
+		},
+		 "LADJ": {	
+			"dodecahedron" : 0,
+			"icosahedron" : 0,
+			"octahedron": +1,
+			"potato": +1
+		},
+		"JLAD": {	
+			"dodecahedron" : +1,
+			"icosahedron" : +1,
+			"octahedron": +1,
+			"potato": -1
+		},
+		"DAJJ": {	
+			"dodecahedron" : -1,
+			"icosahedron" : -1,
+			"octahedron": -1,
+			"potato": +4
+		},
+		"LDLJ": {	
+			"dodecahedron" : +3,
+			"icosahedron" : 0,
+			"octahedron": 0,
+			"potato": -2
+		},
+		"LDJD": {	
+			"dodecahedron" : 0,
+			"icosahedron" : +2,
+			"octahedron": 0,
+			"potato": -1
+		},
+		"AJJA":{
+			"dodecahedron" : 0,
+			"icosahedron" : 0,
+			"octahedron": +2,
+			"potato": -1
+		}
+	}
+var hp = 5
+var immunity = 0
+var strength = 3
+
 @onready var v_box_container = $ScrollContainer/VBoxContainer
 
-func list_nucleotides():
-	var path = "res://Scenes/Nucleotide/"
-	var dir = DirAccess.open(path)
-	if dir:
-		dir.list_dir_begin()
-		var file_name = dir.get_next()
-		while file_name != "":
-			if !dir.current_is_dir():
-				nucleotide_names.append(file_name.split(".")[0].to_upper())
-			file_name = dir.get_next()
-	else:
-		print("An error occurred when trying to access the path.")
 
 func create_sequence(name):
 	var path = "res://Scenes/Nucleotide/" + name + ".tscn"
 	var scene = ResourceLoader.load(path)
 	var instance = scene.instantiate()
 	return instance
+	
+func create_stat(name):
+	var path = "res://Scenes/Icons/" + name + ".tscn"
+	var scene = ResourceLoader.load(path)
+	var instance = scene.instantiate()
+	return instance
 
 func _ready():
-	list_nucleotides()
-	for first_nucleotide in nucleotide_names:
-		for second_nucleotide in nucleotide_names:
-			var nucleotide_name = first_nucleotide + second_nucleotide
-			var scene = ResourceLoader.load("res://Scenes/Glossary/Glossary_element.tscn")
-			var instance = scene.instantiate()
-			instance.set_custom_minimum_size(Vector2(0, 110)) 
-			instance.get_node("Name").bbcode_enabled = true
-			instance.get_node("Name").set_text("[center]" + nucleotide_name + "[/center]")
-			instance.get_node("Stats").bbcode_enabled = true
-			instance.get_node("Stats").set_text("[center]" + nucleotide_name + "[/center]")
-			instance.get_node("Sequence").add_child(create_sequence(first_nucleotide))
-			instance.get_node("Sequence").add_child(create_sequence(second_nucleotide))
-			v_box_container.add_child(instance)
+	for sequence in valid_sequences.keys():
+		var nucleotide_name = sequence
+		var first_nucleotide = nucleotide_name.substr(0,2)
+		var second_nucleotide = nucleotide_name.substr(2,2)
+		var scene = ResourceLoader.load("res://Scenes/Glossary/Glossary_element.tscn")
+		var instance = scene.instantiate()
+		instance.set_custom_minimum_size(Vector2(0, 110)) 
+		instance.get_node("Name").bbcode_enabled = true
+		instance.get_node("Name").set_text("[center]" + nucleotide_name + "[/center]")
+		
+		if valid_sequences[nucleotide_name].potato > 0:
+			instance.get_node("Stats").add_child(create_stat("potato_up"))
+		elif valid_sequences[nucleotide_name].potato < 0:
+			instance.get_node("Stats").add_child(create_stat("potato_down"))
+			
+		if valid_sequences[nucleotide_name].octahedron > 0:
+			instance.get_node("Stats").add_child(create_stat("octahedron_up"))
+		elif valid_sequences[nucleotide_name].octahedron < 0:
+			instance.get_node("Stats").add_child(create_stat("octahedron_down"))
+			
+		if valid_sequences[nucleotide_name].dodecahedron > 0:
+			instance.get_node("Stats").add_child(create_stat("dodecahedron_up"))
+		elif valid_sequences[nucleotide_name].dodecahedron < 0:
+			instance.get_node("Stats").add_child(create_stat("dodecahedron_down"))
+			
+		if valid_sequences[nucleotide_name].icosahedron > 0:
+			instance.get_node("Stats").add_child(create_stat("icosahedron_up"))
+		elif valid_sequences[nucleotide_name].icosahedron < 0:
+			instance.get_node("Stats").add_child(create_stat("icosahedron_down"))
+		instance.get_node("Sequence").add_child(create_sequence(first_nucleotide))
+		instance.get_node("Sequence").add_child(create_sequence(second_nucleotide))
+		v_box_container.add_child(instance)
 
 
 

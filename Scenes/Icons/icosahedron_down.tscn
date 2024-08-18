@@ -1,0 +1,38 @@
+[gd_scene load_steps=3 format=3 uid="uid://ctysq7bs6fmo3"]
+
+[ext_resource type="Texture2D" uid="uid://dxuchq45k6kf7" path="res://Assets/Sprites-models/icosahedron.jpg" id="1_xxcri"]
+[ext_resource type="Texture2D" uid="uid://v3cd0s0d755w" path="res://Assets/Sprites-models/arrow_down.svg" id="2_2c2j7"]
+
+[node name="ColorRect" type="ColorRect"]
+custom_minimum_size = Vector2(50, 50)
+anchors_preset = -1
+anchor_right = 0.043
+anchor_bottom = 0.077
+offset_right = -9.536
+offset_bottom = -9.896
+color = Color(0, 0, 0, 1)
+
+[node name="NinePatchRect2" type="NinePatchRect" parent="."]
+custom_minimum_size = Vector2(50, 50)
+layout_mode = 1
+anchors_preset = -1
+anchor_right = 0.293
+anchor_bottom = 0.444
+offset_right = -11.72
+offset_bottom = -17.76
+texture = ExtResource("1_xxcri")
+metadata/_edit_use_anchors_ = true
+
+[node name="NinePatchRect" type="NinePatchRect" parent="."]
+texture_filter = 2
+custom_minimum_size = Vector2(30, 30)
+layout_mode = 1
+anchors_preset = -1
+anchor_right = 1.396
+anchor_bottom = 1.129
+offset_left = 27.0
+offset_top = 4.0
+offset_right = -28.84
+offset_bottom = -41.16
+texture = ExtResource("2_2c2j7")
+metadata/_edit_use_anchors_ = true

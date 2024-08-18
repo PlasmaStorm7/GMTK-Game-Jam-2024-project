@@ -1,0 +1,38 @@
+[gd_scene load_steps=3 format=3 uid="uid://bp6lgi7fb1tr8"]
+
+[ext_resource type="Texture2D" uid="uid://dwnb3rmpst3jj" path="res://Assets/Sprites-models/potat.png" id="1_cwqrj"]
+[ext_resource type="Texture2D" uid="uid://bl7heglmeaed7" path="res://Assets/Sprites-models/arrow_up.svg" id="2_0dy10"]
+
+[node name="ColorRect" type="ColorRect"]
+custom_minimum_size = Vector2(50, 50)
+anchors_preset = -1
+anchor_right = 0.043
+anchor_bottom = 0.077
+offset_right = -9.536
+offset_bottom = -9.896
+color = Color(0, 0, 0, 1)
+
+[node name="NinePatchRect" type="NinePatchRect" parent="."]
+texture_filter = 2
+custom_minimum_size = Vector2(30, 30)
+layout_mode = 1
+anchors_preset = -1
+anchor_right = 1.396
+anchor_bottom = 1.129
+offset_left = 27.0
+offset_top = 4.0
+offset_right = -42.8
+offset_bottom = -52.45
+texture = ExtResource("2_0dy10")
+metadata/_edit_use_anchors_ = true
+
+[node name="NinePatchRect2" type="NinePatchRect" parent="."]
+custom_minimum_size = Vector2(50, 50)
+layout_mode = 1
+anchors_preset = -1
+anchor_right = 0.293
+anchor_bottom = 0.444
+offset_right = -14.65
+offset_bottom = -22.2
+texture = ExtResource("1_cwqrj")
+metadata/_edit_use_anchors_ = true
