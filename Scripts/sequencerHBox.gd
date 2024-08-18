@@ -3,6 +3,7 @@ var red:= preload("res://Scenes/Sequencer/circle_red.tscn")
 var purple:= preload("res://Scenes/Sequencer/circle_purple.tscn")
 var yellow:= preload("res://Scenes/Sequencer/circle_yellow.tscn")
 var blue:= preload("res://Scenes/Sequencer/circle_blue.tscn")
+var bara:=preload("res://Scenes/Sequencer/bara2D.tscn")
 var vbox:= preload("res://Scenes/Sequencer/v_box_container_de_nucleotide.tscn")
 @onready var timer: Timer = $Timer
 
@@ -20,7 +21,6 @@ var delayed:bool=false
 
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
-	var timer=get_node("Timer")
 	vboxVector.append(vbox.instantiate())
 	add_child(vboxVector[-1])
 	
@@ -53,6 +53,9 @@ func _process(_delta: float) -> void:
 		return
 	
 	if Input.is_action_just_pressed("adenozine"):
+		if i==1:
+			instanceVector.append(bara.instantiate())
+			vboxVector[-1].add_child(instanceVector[-1])
 		instanceVector.append(blue.instantiate())
 		vboxVector[-1].add_child(instanceVector[-1])
 		inputVector+='A'
@@ -61,6 +64,9 @@ func _process(_delta: float) -> void:
 		return
 		
 	if Input.is_action_just_pressed("dinozine"):
+		if i==1:
+			instanceVector.append(bara.instantiate())
+			vboxVector[-1].add_child(instanceVector[-1])
 		instanceVector.append(red.instantiate())
 		vboxVector[-1].add_child(instanceVector[-1])
 		inputVector+='D'
@@ -69,6 +75,9 @@ func _process(_delta: float) -> void:
 		return
 		
 	if Input.is_action_just_pressed("jinozine"):
+		if i==1:
+			instanceVector.append(bara.instantiate())
+			vboxVector[-1].add_child(instanceVector[-1])
 		instanceVector.append(purple.instantiate())
 		vboxVector[-1].add_child(instanceVector[-1])
 		inputVector+='J'
@@ -77,6 +86,9 @@ func _process(_delta: float) -> void:
 		return
 		
 	if Input.is_action_just_pressed("limozine"):
+		if i==1:
+			instanceVector.append(bara.instantiate())
+			vboxVector[-1].add_child(instanceVector[-1])
 		instanceVector.append(yellow.instantiate())
 		vboxVector[-1].add_child(instanceVector[-1])
 		inputVector+='L'

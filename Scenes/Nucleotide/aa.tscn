@@ -1,30 +1,19 @@
-[gd_scene load_steps=4 format=3 uid="uid://ddm8cp5a82io1"]
+[gd_scene load_steps=3 format=3 uid="uid://dxe1ca5usquck"]
 
-[ext_resource type="PackedScene" uid="uid://n2sfnepknmbl" path="res://Scenes/Sequencer/v_box_container_de_nucleotide.tscn" id="1_ouqp6"]
 [ext_resource type="PackedScene" uid="uid://dp25wrqakcp8d" path="res://Scenes/Sequencer/circle_blue.tscn" id="2_o1n0k"]
 [ext_resource type="PackedScene" uid="uid://dcbn8wg445lk8" path="res://Scenes/Sequencer/bara2D.tscn" id="3_celom"]
 
-[node name="AA" type="Control"]
-layout_mode = 3
-anchors_preset = 0
-anchor_right = 0.064
-anchor_bottom = 0.264
-offset_right = 0.271996
-offset_bottom = -0.0720062
+[node name="AA" type="VBoxContainer"]
+offset_right = 40.0
+offset_bottom = 40.0
+theme_override_constants/separation = -5
+alignment = 2
 
-[node name="AA" parent="." instance=ExtResource("1_ouqp6")]
-layout_mode = 1
-anchors_preset = -1
-anchor_right = 1.014
-anchor_bottom = 1.03
-offset_right = -0.0360031
-offset_bottom = 0.0499878
-
-[node name="PatchBlue" parent="AA" instance=ExtResource("2_o1n0k")]
+[node name="PatchBlue" parent="." instance=ExtResource("2_o1n0k")]
 layout_mode = 2
 
-[node name="NinePatchRect" parent="AA" instance=ExtResource("3_celom")]
+[node name="NinePatchRect" parent="." instance=ExtResource("3_celom")]
 layout_mode = 2
 
-[node name="PatchBlue2" parent="AA" instance=ExtResource("2_o1n0k")]
+[node name="PatchBlue2" parent="." instance=ExtResource("2_o1n0k")]
 layout_mode = 2
