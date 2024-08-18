@@ -7,7 +7,8 @@ extends Node
 
 @onready var mob_group: Node = $MobGroup
 
-
+func _ready() -> void:
+	AudioManager.start_game_music()
 
 func _unhandled_input(_event):
 	
