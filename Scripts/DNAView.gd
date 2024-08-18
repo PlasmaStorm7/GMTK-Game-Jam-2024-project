@@ -2,12 +2,15 @@ extends Node
 
 @export var mob_scene: PackedScene
 @export var DNA_scene: NodePath
+@onready var mob_group: Node = $MobGroup
 
 
-func _unhandled_input(event):
+func _unhandled_input(_event):
 	
 	if Input.is_action_just_pressed("pause"):
 		print("pressed ESC")
+		#for child in get_children():
+			#child.get_tree().paused=not child.get_tree().paused
 		get_tree().paused=not get_tree().paused
 		
 func _on_timer_timeout() -> void:
@@ -28,4 +31,4 @@ func _on_timer_timeout() -> void:
 	mob.initialize(mob_spawn_location.position, player_position)
 
 	# Spawn the mob by adding it to the Main scene.
-	add_child(mob)
+	mob_group.add_child(mob)
