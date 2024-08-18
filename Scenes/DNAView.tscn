@@ -14,7 +14,7 @@
 [ext_resource type="AudioStream" uid="uid://cadg0awih7g54" path="res://Assets/SFX/5.wav" id="11_2ygku"]
 [ext_resource type="AudioStream" uid="uid://clklmnv6sfuhr" path="res://Assets/SFX/6.wav" id="12_by1mb"]
 [ext_resource type="Script" path="res://Scripts/Plant_DNA.gd" id="13_dcy1g"]
-[ext_resource type="PackedScene" uid="uid://c63gd1ud4bjrv" path="res://Scenes/DNAStrand.tscn" id="14_y6eb8"]
+[ext_resource type="PackedScene" path="res://Scenes/DNAStrand.tscn" id="14_y6eb8"]
 
 [sub_resource type="PanoramaSkyMaterial" id="PanoramaSkyMaterial_8xubx"]
 

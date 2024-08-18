@@ -33,7 +33,7 @@ func _sequenceBreak() -> void:
 	if j>=MAX_ELEMENTS:
 		timer.start()
 		delayed=true
-		print(inputVector)
+		#print(inputVector)
 		sequence_completed.emit(MAX_ELEMENTS,inputVector)
 		inputVector=""
 		j=0
@@ -43,7 +43,7 @@ func _sequenceBreak() -> void:
 	if i>=2 :
 		vboxVector.append(vbox.instantiate())
 		add_child(vboxVector[-1])
-		print("added a vertBox")
+		#print("added a vertBox")
 		i=0
 	return
 

@@ -14,5 +14,5 @@ func update(potato_value):
 
 
 func _on_text_edit_update_potato(potato_value):
-	print(potato_value)
+	#print(potato_value)
 	update(potato_value)
