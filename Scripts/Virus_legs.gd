@@ -24,23 +24,42 @@ func create_tentacle(index):
 	var parent = Node3D.new()  # Root node for this tentacle
 	var current_node = parent
 
+	# Create a shader material
+	var material = ShaderMaterial.new()
+	material.shader = Shader.new()
+	material.shader.code = """
+		shader_type spatial;
+		
+		void fragment() {
+			ALBEDO = vec3(0.16, 0.0, 0.23);  // RGB for violet color
+			RIM = 0.2;
+			METALLIC = 0.1;
+			ROUGHNESS = 0.7;
+		}
+	"""
+
 	for j in range(segments_per_tentacle):
 		# Create a new pivot node for this segment
-		
 		if j != 0:
 			var pivot = Node3D.new()
 			current_node.add_child(pivot)
 			current_node = pivot
 			pivot.translate(Vector3(0, -(segment_length - segment_radius), 0))
+		
 		# Create the mesh instance for this segment
 		var segment = MeshInstance3D.new()
 		segment.mesh = CapsuleMesh.new()
 		(segment.mesh as CapsuleMesh).height = segment_length
-		(segment.mesh as CapsuleMesh).radius = segment_radius - j * 0.02
-		segment.translate(Vector3(0, -(segment_length/2), 0))
+		(segment.mesh as CapsuleMesh).radius = segment_radius - j * 0.02  # Gradually taper the tentacle
+		segment.translate(Vector3(0, -(segment_length / 2), 0))
+		
+		# Assign the shader material to the segment
+		segment.material_override = material
+		
 		current_node.add_child(segment)
 
 	return parent
+
 
 var amplitude_base = 0.2  # Base amplitude for the root of the tentacle
 var amplitude_increment = 0.1  # Incremental amplitude increase per segment from base to tip

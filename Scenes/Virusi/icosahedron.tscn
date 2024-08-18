@@ -1,0 +1,15 @@
+[gd_scene load_steps=3 format=3 uid="uid://fcim6s8hv4ju"]
+
+[ext_resource type="ArrayMesh" uid="uid://bt7f4gkprbxiy" path="res://Assets/VirusHeads/icosahedron.obj" id="1_qn6hs"]
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_5b8p8"]
+albedo_color = Color(0.857954, 0.144377, 0.204002, 1)
+metallic = 0.25
+roughness = 0.61
+
+[node name="Icosahedron" type="Node3D"]
+
+[node name="Icosahedron" type="MeshInstance3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.85525, 0)
+mesh = ExtResource("1_qn6hs")
+surface_material_override/0 = SubResource("StandardMaterial3D_5b8p8")

@@ -1,0 +1,14 @@
+[gd_scene load_steps=3 format=3 uid="uid://cttm0xdnovdop"]
+
+[ext_resource type="ArrayMesh" uid="uid://bwuqdhodx0jb5" path="res://Assets/VirusHeads/dodecahedron.obj" id="1_ulshl"]
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_e0s58"]
+albedo_color = Color(0.857954, 0.144377, 0.204002, 1)
+metallic = 0.25
+roughness = 0.61
+
+[node name="Dodecahedron" type="Node3D"]
+
+[node name="Dodecahedron" type="MeshInstance3D" parent="."]
+mesh = ExtResource("1_ulshl")
+surface_material_override/0 = SubResource("StandardMaterial3D_e0s58")

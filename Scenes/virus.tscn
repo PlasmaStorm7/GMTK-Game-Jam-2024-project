@@ -36,6 +36,7 @@ max_speed = 1.2
 [node name="StaticBody3D" type="StaticBody3D" parent="."]
 
 [node name="MeshInstance3D" type="MeshInstance3D" parent="StaticBody3D"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 7.76064e-15, -0.728145, 0)
 mesh = SubResource("ImmediateMesh_jdl14")
 script = ExtResource("2_7ho67")
 
