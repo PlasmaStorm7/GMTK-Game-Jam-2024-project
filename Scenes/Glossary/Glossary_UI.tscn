@@ -32,67 +32,27 @@ layout_mode = 2
 size_flags_horizontal = 3
 size_flags_vertical = 3
 
-[node name="Menu" type="ColorRect" parent="."]
-modulate = Color(0.18475, 0.25, 0.1825, 1)
-layout_mode = 1
-anchors_preset = -1
-anchor_right = 0.347
-anchor_bottom = 0.395
-offset_left = -4.0
-offset_top = -3.0
-offset_right = 0.255981
-offset_bottom = 0.0399933
-grow_horizontal = 0
-grow_vertical = 2
-color = Color(0, 0, 0, 1)
-
-[node name="RichTextLabel" type="RichTextLabel" parent="."]
-layout_mode = 1
-anchors_preset = -1
-anchor_right = 0.345
-anchor_bottom = 0.394
-offset_left = -1.0
-offset_top = 1.0
-offset_right = -0.440033
-offset_bottom = -0.312012
-text = "MAIN MENU
-"
-
 [node name="Title" type="ColorRect" parent="."]
 layout_mode = 1
 anchors_preset = -1
 anchor_left = 0.347
 anchor_right = 0.999
 anchor_bottom = 0.062
-offset_left = 0.255981
-offset_right = 0.151855
-offset_bottom = -0.176003
+offset_left = -398.744
+offset_right = 0.151978
+offset_bottom = -0.175999
 grow_horizontal = 2
 grow_vertical = 2
 color = Color(0, 0, 0, 1)
 
-[node name="RichTextLabel" type="RichTextLabel" parent="Title"]
-layout_mode = 1
-anchors_preset = 15
-anchor_right = 1.0
-anchor_bottom = 1.0
-offset_left = -2.0
-offset_top = -1.0
-offset_right = -2.0
-offset_bottom = -1.0
-grow_horizontal = 2
-grow_vertical = 2
-text = "GLOSSARY"
-
 [node name="TextEdit" type="TextEdit" parent="Title"]
 layout_mode = 1
 anchors_preset = -1
-anchor_left = 0.419
+anchor_left = 0.687
 anchor_right = 0.999
-anchor_bottom = 1.0
-offset_left = 0.331024
-offset_right = -0.248962
-offset_bottom = 1.0
+anchor_bottom = 0.95
+offset_left = -0.0500488
+offset_right = -0.849976
 placeholder_text = "Search:"
 script = ExtResource("1_bysaa")
 
