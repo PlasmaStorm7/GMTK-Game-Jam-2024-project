@@ -121,11 +121,16 @@ process_mode = 1
 wait_time = 0.75
 autostart = true
 
+[node name="Timer2" type="Timer" parent="."]
+wait_time = 120.0
+autostart = true
+
 [connection signal="timeout" from="Timer" to="." method="_on_timer_timeout"]
 [connection signal="sequence_completed" from="CanvasLayer/MainGameUi/CanvasLayer/SequencerUi/SequencerHBox" to="PlantDNA" method="_on_sequencer_h_box_sequence_completed"]
 [connection signal="update_potato" from="CanvasLayer/MainGameUi/Glossary_UI/Title/TextEdit" to="CanvasLayer/MainGameUi/Glossary_UI/ProgressBar" method="_on_text_edit_update_potato"]
 [connection signal="pressed" from="CanvasLayer/PauseMenu/MenuContainer/VBoxContainer/MenuButtons/ResumeButton" to="." method="_on_resume_button_pressed"]
 [connection signal="timeout" from="TimerPlantDNA" to="PlantDNA" method="_on_timer_plant_dna_timeout"]
+[connection signal="timeout" from="Timer2" to="." method="_on_timer_2_timeout"]
 
 [editable path="CanvasLayer/MainGameUi"]
 [editable path="CanvasLayer/MainGameUi/CanvasLayer/SequencerUi"]
