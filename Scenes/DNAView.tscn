@@ -1,9 +1,11 @@
 
-[gd_scene load_steps=18 format=3 uid="uid://cbcarb7s7vlip"]
+[gd_scene load_steps=19 format=3 uid="uid://cbcarb7s7vlip"]
+
 
 
 [ext_resource type="Script" path="res://Scripts/DNAView.gd" id="1_3lxgb"]
 [ext_resource type="PackedScene" uid="uid://28d7c2hau37f" path="res://Scenes/virus.tscn" id="2_7opqa"]
+[ext_resource type="Texture2D" uid="uid://dg1hb2jpt6uk" path="res://Assets/Sprites-models/biolab.jpg" id="3_dj2wv"]
 [ext_resource type="PackedScene" uid="uid://bmyp320n2py1p" path="res://Scenes/baraCuCerc.tscn" id="4_c0igr"]
 [ext_resource type="Script" path="res://Scenes/audio_manager.gd" id="4_m41b1"]
 [ext_resource type="AudioStream" uid="uid://cm213y3anjrd7" path="res://Assets/SFX/1.wav" id="5_xbo8w"]
@@ -67,8 +69,12 @@ DNA_scene = NodePath("BaraCuCerc")
 
 [node name="Camera3D" type="Camera3D" parent="."]
 process_mode = 1
-transform = Transform3D(0.985996, -0.00465646, 0.166704, 0, 0.99961, 0.0279216, -0.166769, -0.0275306, 0.985612, 0.877569, 0, 1.65196)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 0)
 environment = SubResource("Environment_onm8h")
+
+[node name="BackGround" type="Sprite3D" parent="."]
+transform = Transform3D(2.15, 0, 0, 0, 2.15, 0, 0, 0, 2.15, 0, 0, -19.478)
+texture = ExtResource("3_dj2wv")
 
 [node name="DirectionalLight3D" type="DirectionalLight3D" parent="."]
 process_mode = 1
