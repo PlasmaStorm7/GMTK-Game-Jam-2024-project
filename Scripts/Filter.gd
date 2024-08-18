@@ -108,5 +108,6 @@ func _on_sequencer_h_box_sequence_completed(length, sequence):
 		item.show()
 	if sequence.to_upper() in valid_sequences.keys():
 		active_potato_value = valid_sequences[sequence.to_upper()].potato
+		AudioManager.change_strand(valid_sequences[sequence.to_upper()].strand)
 	else:
 		active_potato_value = 0
