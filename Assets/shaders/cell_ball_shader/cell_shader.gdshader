@@ -1,7 +1,7 @@
 shader_type spatial;
 render_mode blend_mix,depth_draw_opaque,cull_disabled,diffuse_toon,specular_toon;
 
-instance uniform vec4 albedo : source_color;
+uniform vec4 albedo : source_color;
 uniform sampler2D color_gradient;
 uniform sampler2D fresnel_gradient;
 

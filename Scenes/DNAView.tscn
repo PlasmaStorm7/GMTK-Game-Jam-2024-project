@@ -1,4 +1,4 @@
-[gd_scene load_steps=14 format=3 uid="uid://cbcarb7s7vlip"]
+[gd_scene load_steps=15 format=3 uid="uid://cbcarb7s7vlip"]
 
 [ext_resource type="Script" path="res://Scripts/DNAView.gd" id="1_3lxgb"]
 [ext_resource type="PackedScene" uid="uid://28d7c2hau37f" path="res://Scenes/virus.tscn" id="2_7opqa"]
@@ -6,6 +6,7 @@
 [ext_resource type="Script" path="res://Scenes/audio_manager.gd" id="4_m41b1"]
 [ext_resource type="AudioStream" uid="uid://cm213y3anjrd7" path="res://Assets/SFX/1.wav" id="5_xbo8w"]
 [ext_resource type="AudioStream" uid="uid://bo8i6m8c6o37" path="res://Assets/SFX/2.wav" id="7_0xb8b"]
+[ext_resource type="Script" path="res://Scenes/dna_spawner.gd" id="9_citnt"]
 [ext_resource type="AudioStream" uid="uid://db1qoyi4i2ed3" path="res://Assets/SFX/main.wav" id="9_kwnjl"]
 [ext_resource type="PackedScene" uid="uid://cc1myi2kgcd2" path="res://Scenes/Sequencer/Main_Game_UI.tscn" id="9_typ40"]
 
@@ -49,8 +50,10 @@ DNA_scene = NodePath("BaraCuCerc")
 
 [node name="Camera3D" type="Camera3D" parent="."]
 process_mode = 1
-transform = Transform3D(0.985996, -0.00465646, 0.166704, 0, 0.99961, 0.0279216, -0.166769, -0.0275306, 0.985612, 0.877569, 0, 1.65196)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 0)
 environment = SubResource("Environment_onm8h")
+fov = 113.731
+size = 3.37562
 
 [node name="DirectionalLight3D" type="DirectionalLight3D" parent="."]
 process_mode = 1
@@ -85,5 +88,15 @@ autoplay = true
 process_mode = 1
 
 [node name="MainGameUi" parent="CanvasLayer" instance=ExtResource("9_typ40")]
+
+[node name="Node" type="Node" parent="." node_paths=PackedStringArray("camera_ref", "beginning_node")]
+script = ExtResource("9_citnt")
+camera_ref = NodePath("../Camera3D")
+beginning_node = NodePath("CSGSphere3D")
+
+[node name="CSGSphere3D" type="CSGSphere3D" parent="Node"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -16.1285)
+rings = 1
+smooth_faces = false
 
 [connection signal="timeout" from="Timer" to="." method="_on_timer_timeout"]
