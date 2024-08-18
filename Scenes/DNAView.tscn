@@ -103,6 +103,7 @@ stream = SubResource("AudioStreamSynchronized_6hc1w")
 
 [node name="CanvasLayer" type="CanvasLayer" parent="."]
 process_mode = 1
+visible = false
 
 [node name="MainGameUi" parent="CanvasLayer" instance=ExtResource("9_typ40")]
 
@@ -115,7 +116,7 @@ visible = false
 process_mode = 1
 
 [node name="PlantDNA" type="Node3D" parent="."]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -5.85964, -12.0685, -29.2863)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1.64322, -7.54072, -36.7995)
 script = ExtResource("13_dcy1g")
 template_scene = ExtResource("14_y6eb8")
 
