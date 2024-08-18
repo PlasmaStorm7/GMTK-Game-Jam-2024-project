@@ -1,0 +1,19 @@
+[gd_scene load_steps=3 format=3 uid="uid://dxe1ca5usquck"]
+
+[ext_resource type="PackedScene" uid="uid://dp25wrqakcp8d" path="res://Scenes/Sequencer/circle_blue.tscn" id="2_o1n0k"]
+[ext_resource type="PackedScene" uid="uid://dcbn8wg445lk8" path="res://Scenes/Sequencer/bara2D.tscn" id="3_celom"]
+
+[node name="AA" type="VBoxContainer"]
+offset_right = 40.0
+offset_bottom = 40.0
+theme_override_constants/separation = -5
+alignment = 2
+
+[node name="PatchBlue" parent="." instance=ExtResource("2_o1n0k")]
+layout_mode = 2
+
+[node name="NinePatchRect" parent="." instance=ExtResource("3_celom")]
+layout_mode = 2
+
+[node name="PatchBlue2" parent="." instance=ExtResource("2_o1n0k")]
+layout_mode = 2

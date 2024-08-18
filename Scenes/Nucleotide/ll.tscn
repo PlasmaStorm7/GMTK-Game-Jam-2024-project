@@ -1,0 +1,19 @@
+[gd_scene load_steps=3 format=3 uid="uid://t45qff14hmor"]
+
+[ext_resource type="PackedScene" uid="uid://b58ipdnlmtk7o" path="res://Scenes/Sequencer/circle_yellow.tscn" id="1_7hj5b"]
+[ext_resource type="PackedScene" uid="uid://dcbn8wg445lk8" path="res://Scenes/Sequencer/bara2D.tscn" id="2_dyq7j"]
+
+[node name="LL" type="VBoxContainer"]
+offset_right = 40.0
+offset_bottom = 40.0
+theme_override_constants/separation = -5
+alignment = 2
+
+[node name="PatchYellow" parent="." instance=ExtResource("1_7hj5b")]
+layout_mode = 2
+
+[node name="NinePatchRect" parent="." instance=ExtResource("2_dyq7j")]
+layout_mode = 2
+
+[node name="PatchYellow2" parent="." instance=ExtResource("1_7hj5b")]
+layout_mode = 2

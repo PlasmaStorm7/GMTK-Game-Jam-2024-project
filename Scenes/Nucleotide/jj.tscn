@@ -1,0 +1,19 @@
+[gd_scene load_steps=3 format=3 uid="uid://dvqo1d44j3gor"]
+
+[ext_resource type="PackedScene" uid="uid://ceye1utpvcinx" path="res://Scenes/Sequencer/circle_purple.tscn" id="1_544fh"]
+[ext_resource type="PackedScene" uid="uid://dcbn8wg445lk8" path="res://Scenes/Sequencer/bara2D.tscn" id="2_0trnm"]
+
+[node name="JJ" type="VBoxContainer"]
+offset_right = 40.0
+offset_bottom = 40.0
+theme_override_constants/separation = -5
+alignment = 2
+
+[node name="PatchPurple" parent="." instance=ExtResource("1_544fh")]
+layout_mode = 2
+
+[node name="NinePatchRect" parent="." instance=ExtResource("2_0trnm")]
+layout_mode = 2
+
+[node name="PatchPurple2" parent="." instance=ExtResource("1_544fh")]
+layout_mode = 2
