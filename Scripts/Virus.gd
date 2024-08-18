@@ -14,6 +14,9 @@ var time_since_last_change: float = 0
 var accel_moment: bool = true
 var direction=  Vector3.FORWARD# Where the virus will go
 var health = 20.0
+var goal = Vector3(0,0,0)
+
+signal potato_damage
 
 func _ready():
 	var emitter = get_node("/root/DnaView/PlantDNA")
@@ -50,12 +53,16 @@ func _physics_process(delta):
 
 	# Move the character based on the computed velocity
 	move_and_slide()
+	
+	if global_transform.origin.distance_to(goal) < 1.0:  # Check if within 1m radius
+		emit_signal("potato_damage")
+		queue_free()  # Delete the entity
 
 func initialize(start_position, player_position):
 	global_transform.origin = start_position  # Set the starting position
 	self.look_at_from_position(start_position, player_position, Vector3.UP)
 	rotate_object_local(Vector3.RIGHT,  -90 / (180/PI))
-	
+	goal = player_position
 	# Set initial scale
 	scale = Vector3(0.1, 0.1, 0.1)
 	
