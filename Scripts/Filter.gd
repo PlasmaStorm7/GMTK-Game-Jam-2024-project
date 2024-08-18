@@ -1,17 +1,79 @@
 extends TextEdit
 
 var items = []
+static var potato = 0
 @onready var v_box_container = $"../../ScrollContainer/VBoxContainer"
+static var active_potato_value = 0
+var valid_sequences = {
+		"JJDJ": {
+			"dodecahedron" : +1,
+			"icosahedron" : 0,
+			"octahedron": 0,
+			"potato": +1,
+			"strand": 1
+		}, 
+		"JAJA": {    
+			"dodecahedron" : 0,
+			"icosahedron" : +1,
+			"octahedron": 0,
+			"potato": +1,
+			"strand": 2
+		},
+		 "LADJ": {    
+			"dodecahedron" : 0,
+			"icosahedron" : 0,
+			"octahedron": +1,
+			"potato": +1,
+			"strand": 3
+		},
+		"JLAD": {    
+			"dodecahedron" : +1,
+			"icosahedron" : +1,
+			"octahedron": +1,
+			"potato": -1,
+			"strand": 4
+		},
+		"DAJJ": {    
+			"dodecahedron" : -1,
+			"icosahedron" : -1,
+			"octahedron": -1,
+			"potato": +4,
+			"strand": 5
+		},
+		"LDLJ": {    
+			"dodecahedron" : +3,
+			"icosahedron" : 0,
+			"octahedron": 0,
+			"potato": -2,
+			"strand": 6
+		},
+		"LDJD": {    
+			"dodecahedron" : 0,
+			"icosahedron" : +2,
+			"octahedron": 0,
+			"potato": -1,
+			"strand": 1
+		},
+		"AJJA":{
+			"dodecahedron" : 0,
+			"icosahedron" : 0,
+			"octahedron": +2,
+			"potato": -1,
+			"strand": 2
+		}
+	}
 
+signal update_potato(potato_value:int)
 # Called when the node enters the scene tree for the first time.
 func _ready():
 	# Initialize with the list elements
 	pass
 	
-	
+
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta):
-	pass
+	potato += active_potato_value * delta
+	update_potato.emit(int(potato))
 
 
 func _on_sequencer_h_box_molecule_added(letter):
@@ -21,7 +83,6 @@ func _on_sequencer_h_box_molecule_added(letter):
 	var matches = []
 	# Lowercase text for search
 	var search_text = text.to_lower()
-	print(search_text)
 	# If empty then print all
 	if search_text == "":
 		for item in items:
@@ -45,3 +106,5 @@ func _on_sequencer_h_box_sequence_completed(length, sequence):
 	items = v_box_container.get_children()
 	for item in items:
 		item.show()
+	active_potato_value = valid_sequences[sequence.to_upper()].potato
+		

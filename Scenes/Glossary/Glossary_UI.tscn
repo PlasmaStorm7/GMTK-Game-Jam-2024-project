@@ -1,7 +1,8 @@
-[gd_scene load_steps=3 format=3 uid="uid://cs3nie2r7c7kt"]
+[gd_scene load_steps=4 format=3 uid="uid://cs3nie2r7c7kt"]
 
 [ext_resource type="Script" path="res://Scripts/Filter.gd" id="1_bysaa"]
 [ext_resource type="Script" path="res://Scripts/Glossary_ui.gd" id="1_hc2id"]
+[ext_resource type="Script" path="res://Scripts/Potato_progress.gd" id="3_6ji8u"]
 
 [node name="Glossay_UI" type="Control"]
 layout_mode = 3
@@ -55,5 +56,16 @@ offset_left = -0.0500488
 offset_right = -0.849976
 placeholder_text = "Search:"
 script = ExtResource("1_bysaa")
+
+[node name="ProgressBar" type="ProgressBar" parent="."]
+layout_mode = 1
+anchors_preset = -1
+anchor_right = 0.682
+anchor_bottom = 0.051
+offset_left = 5.0
+offset_top = 1.0
+offset_right = 0.335938
+offset_bottom = -0.0480003
+script = ExtResource("3_6ji8u")
 
 [connection signal="text_changed" from="Title/TextEdit" to="Title/TextEdit" method="_on_text_changed"]

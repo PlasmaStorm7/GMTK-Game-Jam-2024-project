@@ -1,20 +1,14 @@
-
-[gd_scene load_steps=19 format=3 uid="uid://cbcarb7s7vlip"]
-
-
+[gd_scene load_steps=21 format=3 uid="uid://cbcarb7s7vlip"]
 
 [ext_resource type="Script" path="res://Scripts/DNAView.gd" id="1_3lxgb"]
 [ext_resource type="PackedScene" uid="uid://28d7c2hau37f" path="res://Scenes/virus.tscn" id="2_7opqa"]
 [ext_resource type="Texture2D" uid="uid://dg1hb2jpt6uk" path="res://Assets/Sprites-models/biolab.jpg" id="3_dj2wv"]
-[ext_resource type="PackedScene" uid="uid://bmyp320n2py1p" path="res://Scenes/baraCuCerc.tscn" id="4_c0igr"]
 [ext_resource type="Script" path="res://Scenes/audio_manager.gd" id="4_m41b1"]
 [ext_resource type="AudioStream" uid="uid://cm213y3anjrd7" path="res://Assets/SFX/1.wav" id="5_xbo8w"]
 [ext_resource type="AudioStream" uid="uid://bo8i6m8c6o37" path="res://Assets/SFX/2.wav" id="7_0xb8b"]
 [ext_resource type="AudioStream" uid="uid://db1qoyi4i2ed3" path="res://Assets/SFX/main.wav" id="9_kwnjl"]
 [ext_resource type="PackedScene" uid="uid://cc1myi2kgcd2" path="res://Scenes/Sequencer/Main_Game_UI.tscn" id="9_typ40"]
-
 [ext_resource type="PackedScene" uid="uid://ddn3bxc0qyabs" path="res://Maack template scenes/scenes/Menus/PauseMenu/PauseMenu.tscn" id="9_vp5pq"]
-
 [ext_resource type="AudioStream" uid="uid://chnh72rvjfv0d" path="res://Assets/SFX/3.wav" id="9_w0cy7"]
 [ext_resource type="AudioStream" uid="uid://b0re47t2a648v" path="res://Assets/SFX/4.wav" id="10_inc2m"]
 [ext_resource type="AudioStream" uid="uid://cadg0awih7g54" path="res://Assets/SFX/5.wav" id="11_2ygku"]
@@ -70,7 +64,6 @@ DNA_scene = NodePath("PlantDNA")
 
 [node name="Camera3D" type="Camera3D" parent="."]
 process_mode = 1
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 0)
 environment = SubResource("Environment_onm8h")
 
 [node name="BackGround" type="Sprite3D" parent="."]
@@ -103,10 +96,11 @@ stream = SubResource("AudioStreamSynchronized_6hc1w")
 
 [node name="CanvasLayer" type="CanvasLayer" parent="."]
 process_mode = 1
-visible = false
 
 [node name="MainGameUi" parent="CanvasLayer" instance=ExtResource("9_typ40")]
 
+[node name="ProgressBar" parent="CanvasLayer/MainGameUi/Glossary_UI" index="2"]
+show_percentage = false
 
 [node name="PauseMenu" parent="CanvasLayer" instance=ExtResource("9_vp5pq")]
 process_mode = 2
@@ -125,12 +119,12 @@ wait_time = 0.75
 autostart = true
 
 [connection signal="timeout" from="Timer" to="." method="_on_timer_timeout"]
-[connection signal="pressed" from="CanvasLayer/PauseMenu/MenuContainer/VBoxContainer/MenuButtons/ResumeButton" to="." method="_on_resume_button_pressed"]
-
-[editable path="CanvasLayer/PauseMenu"]
 [connection signal="sequence_completed" from="CanvasLayer/MainGameUi/CanvasLayer/SequencerUi/SequencerHBox" to="PlantDNA" method="_on_sequencer_h_box_sequence_completed"]
+[connection signal="update_potato" from="CanvasLayer/MainGameUi/Glossary_UI/Title/TextEdit" to="CanvasLayer/MainGameUi/Glossary_UI/ProgressBar" method="_on_text_edit_update_potato"]
+[connection signal="pressed" from="CanvasLayer/PauseMenu/MenuContainer/VBoxContainer/MenuButtons/ResumeButton" to="." method="_on_resume_button_pressed"]
 [connection signal="timeout" from="TimerPlantDNA" to="PlantDNA" method="_on_timer_plant_dna_timeout"]
 
 [editable path="CanvasLayer/MainGameUi"]
 [editable path="CanvasLayer/MainGameUi/CanvasLayer/SequencerUi"]
 [editable path="CanvasLayer/MainGameUi/Glossary_UI"]
+[editable path="CanvasLayer/PauseMenu"]
