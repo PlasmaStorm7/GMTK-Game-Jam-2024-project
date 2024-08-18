@@ -1,6 +1,7 @@
-[gd_scene load_steps=2 format=3 uid="uid://cs3nie2r7c7kt"]
+[gd_scene load_steps=3 format=3 uid="uid://cs3nie2r7c7kt"]
 
-[ext_resource type="PackedScene" uid="uid://domm11iguay4m" path="res://Scenes/Glossary/mock_glossary_element.tscn" id="1_oiw43"]
+[ext_resource type="Script" path="res://Scripts/Filter.gd" id="1_bysaa"]
+[ext_resource type="Script" path="res://Scripts/Glossary_ui.gd" id="1_hc2id"]
 
 [node name="Glossay_UI" type="Control"]
 layout_mode = 3
@@ -9,6 +10,27 @@ anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
+script = ExtResource("1_hc2id")
+
+[node name="ScrollContainer" type="ScrollContainer" parent="."]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.618
+anchor_top = 0.066
+anchor_right = 0.994
+anchor_bottom = 1.0
+offset_left = 0.0639648
+offset_top = 0.231998
+offset_right = -0.0880127
+offset_bottom = -4.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="VBoxContainer" type="VBoxContainer" parent="ScrollContainer"]
+custom_minimum_size = Vector2(100, 100)
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
 
 [node name="Menu" type="ColorRect" parent="."]
 modulate = Color(0.18475, 0.25, 0.1825, 1)
@@ -62,42 +84,16 @@ grow_horizontal = 2
 grow_vertical = 2
 text = "GLOSSARY"
 
-[node name="ScrollContainer" type="ScrollContainer" parent="."]
+[node name="TextEdit" type="TextEdit" parent="Title"]
 layout_mode = 1
 anchors_preset = -1
-anchor_left = 0.618
-anchor_top = 0.066
-anchor_right = 0.994
+anchor_left = 0.419
+anchor_right = 0.999
 anchor_bottom = 1.0
-offset_left = 0.0639648
-offset_top = 0.231998
-offset_right = -0.0880127
-offset_bottom = -4.0
-grow_horizontal = 2
-grow_vertical = 2
+offset_left = 0.331024
+offset_right = -0.248962
+offset_bottom = 1.0
+placeholder_text = "Search:"
+script = ExtResource("1_bysaa")
 
-[node name="VBoxContainer" type="VBoxContainer" parent="ScrollContainer"]
-custom_minimum_size = Vector2(100, 100)
-layout_mode = 2
-size_flags_horizontal = 3
-size_flags_vertical = 3
-
-[node name="mock_glossary_element" parent="ScrollContainer/VBoxContainer" instance=ExtResource("1_oiw43")]
-custom_minimum_size = Vector2(100, 100)
-layout_mode = 2
-
-[node name="mock_glossary_element2" parent="ScrollContainer/VBoxContainer" instance=ExtResource("1_oiw43")]
-custom_minimum_size = Vector2(100, 100)
-layout_mode = 2
-
-[node name="mock_glossary_element3" parent="ScrollContainer/VBoxContainer" instance=ExtResource("1_oiw43")]
-custom_minimum_size = Vector2(100, 100)
-layout_mode = 2
-
-[node name="mock_glossary_element4" parent="ScrollContainer/VBoxContainer" instance=ExtResource("1_oiw43")]
-custom_minimum_size = Vector2(100, 100)
-layout_mode = 2
-
-[node name="mock_glossary_element5" parent="ScrollContainer/VBoxContainer" instance=ExtResource("1_oiw43")]
-custom_minimum_size = Vector2(100, 100)
-layout_mode = 2
+[connection signal="text_changed" from="Title/TextEdit" to="Title/TextEdit" method="_on_text_changed"]
