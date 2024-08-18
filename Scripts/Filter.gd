@@ -106,5 +106,7 @@ func _on_sequencer_h_box_sequence_completed(length, sequence):
 	items = v_box_container.get_children()
 	for item in items:
 		item.show()
-	active_potato_value = valid_sequences[sequence.to_upper()].potato
-		
+	if sequence.to_upper() in valid_sequences.keys():
+		active_potato_value = valid_sequences[sequence.to_upper()].potato
+	else:
+		active_potato_value = 0
