@@ -1,0 +1,32 @@
+[gd_scene load_steps=6 format=3 uid="uid://c63gd1ud4bjrv"]
+
+[ext_resource type="Script" path="res://Scripts/DNAStrand.gd" id="1_71da7"]
+
+[sub_resource type="CylinderMesh" id="CylinderMesh_4bib8"]
+
+[sub_resource type="CylinderMesh" id="CylinderMesh_4ckjy"]
+
+[sub_resource type="SphereMesh" id="SphereMesh_n7hly"]
+
+[sub_resource type="SphereMesh" id="SphereMesh_yvcjm"]
+
+[node name="DnaStrand" type="RigidBody3D"]
+script = ExtResource("1_71da7")
+sphere_color2 = Color(0.89469, 0.000202919, 0.775652, 1)
+cylinder_color2 = Color(0.928214, 0.836702, 0, 1)
+
+[node name="nozina" type="MeshInstance3D" parent="."]
+transform = Transform3D(-4.37114e-08, 1, 0, -1, -4.37114e-08, 0, 0, 0, 1, 1, 0, 0)
+mesh = SubResource("CylinderMesh_4bib8")
+
+[node name="nozina2" type="MeshInstance3D" parent="."]
+transform = Transform3D(-4.37114e-08, -1, 0, 1, -4.37114e-08, 0, 0, 0, 1, -1, 0, 0)
+mesh = SubResource("CylinderMesh_4ckjy")
+
+[node name="sugarPhospateBackbone" type="MeshInstance3D" parent="."]
+transform = Transform3D(2, 0, 0, 0, 2, 0, 0, 0, 2, 2, 0, 0)
+mesh = SubResource("SphereMesh_n7hly")
+
+[node name="sugarPhospateBackbone2" type="MeshInstance3D" parent="."]
+transform = Transform3D(2, 0, 0, 0, 2, 0, 0, 0, 2, -2, 0, 0)
+mesh = SubResource("SphereMesh_yvcjm")
