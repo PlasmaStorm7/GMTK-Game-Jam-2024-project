@@ -12,7 +12,7 @@ var current_speed: float = 0.2
 var target_speed: float = 1
 var time_since_last_change: float = 0
 var accel_moment: bool = true
-var direction # Where the virus will go
+var direction=  Vector3.FORWARD# Where the virus will go
 
 func _physics_process(delta):
 	# Update the time since last speed change
@@ -29,8 +29,6 @@ func _physics_process(delta):
 	else:
 		current_speed = current_speed - 0.009
 	
-	# Update the velocity based on the current speed
-	print (velocity.normalized(), " ", current_speed)
 	velocity = direction * current_speed
 
 	# Move the character based on the computed velocity

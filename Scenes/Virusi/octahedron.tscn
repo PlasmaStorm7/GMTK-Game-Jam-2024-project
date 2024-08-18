@@ -1,0 +1,14 @@
+[gd_scene load_steps=3 format=3 uid="uid://b12ycpfnhejlh"]
+
+[ext_resource type="ArrayMesh" uid="uid://c3c2nyiq4yw1t" path="res://Assets/VirusHeads/octahedron.obj" id="1_njhw5"]
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_smbun"]
+albedo_color = Color(0.857954, 0.144377, 0.204002, 1)
+metallic = 0.25
+roughness = 0.61
+
+[node name="Octahedron" type="Node3D"]
+
+[node name="Octahedron" type="MeshInstance3D" parent="."]
+mesh = ExtResource("1_njhw5")
+surface_material_override/0 = SubResource("StandardMaterial3D_smbun")

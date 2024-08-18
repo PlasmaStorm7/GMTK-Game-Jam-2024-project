@@ -1,0 +1,22 @@
+[remap]
+
+importer="wavefront_obj"
+importer_version=1
+type="Mesh"
+uid="uid://bt7f4gkprbxiy"
+path="res://.godot/imported/icosahedron.obj-6a2c929a30b4b23a5ff581d48dc48a77.mesh"
+
+[deps]
+
+files=["res://.godot/imported/icosahedron.obj-6a2c929a30b4b23a5ff581d48dc48a77.mesh"]
+
+source_file="res://Assets/VirusHeads/icosahedron.obj"
+dest_files=["res://.godot/imported/icosahedron.obj-6a2c929a30b4b23a5ff581d48dc48a77.mesh", "res://.godot/imported/icosahedron.obj-6a2c929a30b4b23a5ff581d48dc48a77.mesh"]
+
+[params]
+
+generate_tangents=true
+scale_mesh=Vector3(1, 1, 1)
+offset_mesh=Vector3(0, 0, 0)
+optimize_mesh=true
+force_disable_mesh_compression=false
