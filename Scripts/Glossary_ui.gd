@@ -5,56 +5,63 @@ var valid_sequences = {
 			"dodecahedron" : +1,
 			"icosahedron" : 0,
 			"octahedron": 0,
-			"potato": +1
+			"potato": +1,
+			"strand": 1
 		}, 
 		"JAJA": {	
 			"dodecahedron" : 0,
 			"icosahedron" : +1,
 			"octahedron": 0,
-			"potato": +1
+			"potato": +1,
+			"strand": 2
 		},
 		 "LADJ": {	
 			"dodecahedron" : 0,
 			"icosahedron" : 0,
 			"octahedron": +1,
-			"potato": +1
+			"potato": +1,
+			"strand": 3
 		},
 		"JLAD": {	
 			"dodecahedron" : +1,
 			"icosahedron" : +1,
 			"octahedron": +1,
-			"potato": -1
+			"potato": -1,
+			"strand": 4
 		},
 		"DAJJ": {	
 			"dodecahedron" : -1,
 			"icosahedron" : -1,
 			"octahedron": -1,
-			"potato": +4
+			"potato": +4,
+			"strand": 5
 		},
 		"LDLJ": {	
 			"dodecahedron" : +3,
 			"icosahedron" : 0,
 			"octahedron": 0,
-			"potato": -2
+			"potato": -2,
+			"strand": 6
 		},
 		"LDJD": {	
 			"dodecahedron" : 0,
 			"icosahedron" : +2,
 			"octahedron": 0,
-			"potato": -1
+			"potato": -1,
+			"strand": 1
 		},
 		"AJJA":{
 			"dodecahedron" : 0,
 			"icosahedron" : 0,
 			"octahedron": +2,
-			"potato": -1
+			"potato": -1,
+			"strand": 2
 		}
 	}
-var hp = 5
-var immunity = 0
-var strength = 3
+	
 
 @onready var v_box_container = $ScrollContainer/VBoxContainer
+@onready var progress_bar = $ProgressBar
 
 
 func create_sequence(name):
@@ -99,6 +106,8 @@ func _ready():
 			instance.get_node("Stats").add_child(create_stat("icosahedron_up"))
 		elif valid_sequences[nucleotide_name].icosahedron < 0:
 			instance.get_node("Stats").add_child(create_stat("icosahedron_down"))
+		
+		
 		instance.get_node("Sequence").add_child(create_sequence(first_nucleotide))
 		instance.get_node("Sequence").add_child(create_sequence(second_nucleotide))
 		v_box_container.add_child(instance)
