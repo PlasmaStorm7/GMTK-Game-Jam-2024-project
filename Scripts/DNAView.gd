@@ -16,8 +16,8 @@ func _unhandled_input(_event):
 		print("pressed ESC")
 		#for child in get_children():
 			#child.get_tree().paused=not child.get_tree().paused
-		get_tree().paused=not get_tree().paused
-		pause_menu.visible=not pause_menu.visible
+		get_tree().paused=true
+		pause_menu.visible=true
 		
 func _on_timer_timeout() -> void:
 	# Create a new instance of the Mob scene.

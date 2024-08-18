@@ -67,6 +67,7 @@ process_mode = 1
 environment = SubResource("Environment_onm8h")
 
 [node name="BackGround" type="Sprite3D" parent="."]
+process_mode = 1
 transform = Transform3D(3.89, 0, 0, 0, 3.89, 0, 0, 0, 3.89, 0, -3.08369, -34.8184)
 texture = ExtResource("3_dj2wv")
 
@@ -110,11 +111,13 @@ visible = false
 process_mode = 1
 
 [node name="PlantDNA" type="Node3D" parent="."]
+process_mode = 1
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -12.4831, -8.47629, -27.143)
 script = ExtResource("13_dcy1g")
 template_scene = ExtResource("14_y6eb8")
 
 [node name="TimerPlantDNA" type="Timer" parent="."]
+process_mode = 1
 wait_time = 0.75
 autostart = true
 
