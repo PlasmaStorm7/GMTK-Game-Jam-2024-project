@@ -3,6 +3,13 @@ extends Node
 @export var mob_scene: PackedScene
 @export var DNA_scene: NodePath
 
+
+func _unhandled_input(event):
+	
+	if Input.is_action_just_pressed("pause"):
+		print("pressed ESC")
+		get_tree().paused=not get_tree().paused
+		
 func _on_timer_timeout() -> void:
 	# Create a new instance of the Mob scene.
 	var mob = mob_scene.instantiate()
