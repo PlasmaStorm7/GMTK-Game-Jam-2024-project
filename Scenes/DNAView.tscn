@@ -19,7 +19,8 @@
 [ext_resource type="AudioStream" uid="uid://b0re47t2a648v" path="res://Assets/SFX/4.wav" id="10_inc2m"]
 [ext_resource type="AudioStream" uid="uid://cadg0awih7g54" path="res://Assets/SFX/5.wav" id="11_2ygku"]
 [ext_resource type="AudioStream" uid="uid://clklmnv6sfuhr" path="res://Assets/SFX/6.wav" id="12_by1mb"]
-
+[ext_resource type="Script" path="res://Scripts/Plant_DNA.gd" id="13_dcy1g"]
+[ext_resource type="PackedScene" uid="uid://c63gd1ud4bjrv" path="res://Scenes/DNAStrand.tscn" id="14_y6eb8"]
 
 [sub_resource type="PanoramaSkyMaterial" id="PanoramaSkyMaterial_8xubx"]
 
@@ -65,7 +66,7 @@ stream_6/volume = -60.0
 process_mode = 3
 script = ExtResource("1_3lxgb")
 mob_scene = ExtResource("2_7opqa")
-DNA_scene = NodePath("BaraCuCerc")
+DNA_scene = NodePath("PlantDNA")
 
 [node name="Camera3D" type="Camera3D" parent="."]
 process_mode = 1
@@ -79,10 +80,6 @@ texture = ExtResource("3_dj2wv")
 [node name="DirectionalLight3D" type="DirectionalLight3D" parent="."]
 process_mode = 1
 transform = Transform3D(0.69734, 0, 0.71674, -0.449034, 0.779425, 0.43688, -0.558646, -0.626495, 0.543525, 2.09304, 1.23465, 1.93131)
-
-[node name="BaraCuCerc" parent="." instance=ExtResource("4_c0igr")]
-process_mode = 1
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 2.06308, -17.4369)
 
 [node name="SpawnPath" type="Path3D" parent="."]
 process_mode = 1
@@ -117,8 +114,22 @@ visible = false
 [node name="MobGroup" type="Node" parent="."]
 process_mode = 1
 
+[node name="PlantDNA" type="Node3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -5.85964, -12.0685, -29.2863)
+script = ExtResource("13_dcy1g")
+template_scene = ExtResource("14_y6eb8")
+
+[node name="TimerPlantDNA" type="Timer" parent="."]
+wait_time = 0.75
+autostart = true
 
 [connection signal="timeout" from="Timer" to="." method="_on_timer_timeout"]
 [connection signal="pressed" from="CanvasLayer/PauseMenu/MenuContainer/VBoxContainer/MenuButtons/ResumeButton" to="." method="_on_resume_button_pressed"]
 
 [editable path="CanvasLayer/PauseMenu"]
+[connection signal="sequence_completed" from="CanvasLayer/MainGameUi/CanvasLayer/SequencerUi/SequencerHBox" to="PlantDNA" method="_on_sequencer_h_box_sequence_completed"]
+[connection signal="timeout" from="TimerPlantDNA" to="PlantDNA" method="_on_timer_plant_dna_timeout"]
+
+[editable path="CanvasLayer/MainGameUi"]
+[editable path="CanvasLayer/MainGameUi/CanvasLayer/SequencerUi"]
+[editable path="CanvasLayer/MainGameUi/Glossary_UI"]

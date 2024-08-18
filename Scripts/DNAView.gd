@@ -31,7 +31,8 @@ func _on_timer_timeout() -> void:
 	var player_position = Vector3(0,0,0);
 	var character = get_node(DNA_scene)
 	if character:
-		player_position = character.global_transform.origin
+		player_position = character.global_transform.origin + Vector3(0,29,0) 
+		# the spawner is a bit lower and we want the viruses to go towards the center of the column
 		
 	mob.initialize(mob_spawn_location.position, player_position)
 
