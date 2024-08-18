@@ -1,18 +1,11 @@
 # Attribution
 ## Collaborators
 
-### Role
-Person 1  
-Person 2  
-[Person w/ Link]()  
-
-
-## Sourced / Unaffiliated
-### Asset Type
-#### Use Case
-Author: [Name]()  
-Source: [Domain : webpage.html]()  
-License: [License]()
+Razvan Udrea
+Horatiu Udrea
+Radu Sava
+Andrei Onita
+Dorian David 
 
 
 ## Tools
