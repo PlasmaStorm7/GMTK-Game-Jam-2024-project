@@ -42,3 +42,6 @@ func _on_sequencer_h_box_molecule_added(letter):
 
 func _on_sequencer_h_box_sequence_completed(length, sequence):
 	text = ""
+	items = v_box_container.get_children()
+	for item in items:
+		item.show()
