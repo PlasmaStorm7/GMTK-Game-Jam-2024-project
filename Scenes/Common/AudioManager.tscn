@@ -1,0 +1,37 @@
+[gd_scene load_steps=11 format=3 uid="uid://cwl03bhajrhmq"]
+
+[ext_resource type="Script" path="res://Scenes/Common/audio_manager.gd" id="1_sy24p"]
+[ext_resource type="AudioStream" uid="uid://crjx5ctrju101" path="res://Assets/SFX/main_screen_theme.wav" id="2_bj1w7"]
+[ext_resource type="AudioStream" uid="uid://db1qoyi4i2ed3" path="res://Assets/SFX/main.wav" id="3_72clm"]
+[ext_resource type="AudioStream" uid="uid://cm213y3anjrd7" path="res://Assets/SFX/1.wav" id="4_vsgix"]
+[ext_resource type="AudioStream" uid="uid://bo8i6m8c6o37" path="res://Assets/SFX/2.wav" id="5_uuj2b"]
+[ext_resource type="AudioStream" uid="uid://chnh72rvjfv0d" path="res://Assets/SFX/3.wav" id="6_ent0d"]
+[ext_resource type="AudioStream" uid="uid://b0re47t2a648v" path="res://Assets/SFX/4.wav" id="7_eewgn"]
+[ext_resource type="AudioStream" uid="uid://cadg0awih7g54" path="res://Assets/SFX/5.wav" id="8_2c3ie"]
+[ext_resource type="AudioStream" uid="uid://clklmnv6sfuhr" path="res://Assets/SFX/6.wav" id="9_vdm5u"]
+
+[sub_resource type="AudioStreamSynchronized" id="AudioStreamSynchronized_0q0xy"]
+stream_count = 7
+stream_0/stream = ExtResource("3_72clm")
+stream_0/volume = 0.0
+stream_1/stream = ExtResource("4_vsgix")
+stream_1/volume = -60.0
+stream_2/stream = ExtResource("5_uuj2b")
+stream_2/volume = -60.0
+stream_3/stream = ExtResource("6_ent0d")
+stream_3/volume = -60.0
+stream_4/stream = ExtResource("7_eewgn")
+stream_4/volume = -60.0
+stream_5/stream = ExtResource("8_2c3ie")
+stream_5/volume = -60.0
+stream_6/stream = ExtResource("9_vdm5u")
+stream_6/volume = -60.0
+
+[node name="AudioManager" type="Node"]
+script = ExtResource("1_sy24p")
+
+[node name="MainTheme" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("2_bj1w7")
+
+[node name="Music" type="AudioStreamPlayer" parent="."]
+stream = SubResource("AudioStreamSynchronized_0q0xy")

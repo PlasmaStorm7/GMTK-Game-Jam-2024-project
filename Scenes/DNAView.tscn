@@ -3,7 +3,7 @@
 [ext_resource type="Script" path="res://Scripts/DNAView.gd" id="1_3lxgb"]
 [ext_resource type="PackedScene" uid="uid://28d7c2hau37f" path="res://Scenes/virus.tscn" id="2_7opqa"]
 [ext_resource type="Texture2D" uid="uid://dg1hb2jpt6uk" path="res://Assets/Sprites-models/biolab.jpg" id="3_dj2wv"]
-[ext_resource type="Script" path="res://Scenes/audio_manager.gd" id="4_m41b1"]
+[ext_resource type="Script" path="res://Scenes/Common/audio_manager.gd" id="4_m41b1"]
 [ext_resource type="AudioStream" uid="uid://cm213y3anjrd7" path="res://Assets/SFX/1.wav" id="5_xbo8w"]
 [ext_resource type="AudioStream" uid="uid://bo8i6m8c6o37" path="res://Assets/SFX/2.wav" id="7_0xb8b"]
 [ext_resource type="AudioStream" uid="uid://db1qoyi4i2ed3" path="res://Assets/SFX/main.wav" id="9_kwnjl"]
@@ -14,7 +14,7 @@
 [ext_resource type="AudioStream" uid="uid://cadg0awih7g54" path="res://Assets/SFX/5.wav" id="11_2ygku"]
 [ext_resource type="AudioStream" uid="uid://clklmnv6sfuhr" path="res://Assets/SFX/6.wav" id="12_by1mb"]
 [ext_resource type="Script" path="res://Scripts/Plant_DNA.gd" id="13_dcy1g"]
-[ext_resource type="PackedScene" path="res://Scenes/DNAStrand.tscn" id="14_y6eb8"]
+[ext_resource type="PackedScene" uid="uid://c63gd1ud4bjrv" path="res://Scenes/DNAStrand.tscn" id="14_y6eb8"]
 
 [sub_resource type="PanoramaSkyMaterial" id="PanoramaSkyMaterial_8xubx"]
 
@@ -64,7 +64,6 @@ DNA_scene = NodePath("PlantDNA")
 
 [node name="Camera3D" type="Camera3D" parent="."]
 process_mode = 1
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 0)
 environment = SubResource("Environment_onm8h")
 
 [node name="BackGround" type="Sprite3D" parent="."]
@@ -120,7 +119,6 @@ wait_time = 0.75
 autostart = true
 
 [connection signal="timeout" from="Timer" to="." method="_on_timer_timeout"]
-[connection signal="sequence_completed" from="CanvasLayer/MainGameUi/CanvasLayer/SequencerUi/SequencerHBox" to="PlantDNA" method="_on_sequencer_h_box_sequence_completed"]
 [connection signal="sequence_completed" from="CanvasLayer/MainGameUi/CanvasLayer/SequencerUi/SequencerHBox" to="PlantDNA" method="_on_sequencer_h_box_sequence_completed"]
 [connection signal="update_potato" from="CanvasLayer/MainGameUi/Glossary_UI/Title/TextEdit" to="CanvasLayer/MainGameUi/Glossary_UI/ProgressBar" method="_on_text_edit_update_potato"]
 [connection signal="pressed" from="CanvasLayer/PauseMenu/MenuContainer/VBoxContainer/MenuButtons/ResumeButton" to="." method="_on_resume_button_pressed"]

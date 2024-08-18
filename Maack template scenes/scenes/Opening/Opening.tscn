@@ -6,3 +6,6 @@
 [node name="Opening" instance=ExtResource("1_iekv5")]
 script = ExtResource("2_pf26o")
 next_scene = "res://Maack template scenes/scenes/Menus/MainMenu/MainMenuWithAnimations.tscn"
+
+[node name="BackgroundMusicPlayer" parent="." index="0"]
+bus = &"Master"
